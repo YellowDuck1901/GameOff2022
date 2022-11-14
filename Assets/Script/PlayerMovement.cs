@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
 
-	#region COMPONENTS
+    public static  bool _disableJump, _disableLeft, _disableRight, _disableslide, _disableslideUp, _disableslideDown, _disableDash;
+    #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
 	//public PlayerAnimator AnimHandler { get; private set; }
@@ -53,6 +54,7 @@ public class PlayerMovement : MonoBehaviour
     //Input Left: true when long-press, false when un press
     private bool _isKeyRight;
 
+	
     #endregion
 
     #region INPUT PARAMETERS
@@ -132,7 +134,7 @@ public class PlayerMovement : MonoBehaviour
 
 		if (Input.GetKeyUp(KeyCode.Z))
 		{
-			Mechanic.CountSlide++;
+			Mechanic.Countslide++;
             _isKeySlide = false;
 		}
 
@@ -160,13 +162,16 @@ public class PlayerMovement : MonoBehaviour
 
         if (_isKeySlide && Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
         {
-            Mechanic.CountSliceUp++;
+            Mechanic.CountslideUp++;
+			Debug.Log("CountslideUp");
         }
 
         if (_isKeySlide && Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
         {
-            Mechanic.CountSlideDown++;
+            Mechanic.CountslideDown++;
+            Debug.Log("CountslideDown");
         }
+
         #endregion
 
         #region COLLISION CHECKS
@@ -329,8 +334,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
-		//Handle Run
-		if (!IsDashing)
+		if (_disableLeft && _moveInput.x < 0) _moveInput.x = 0;
+		else if (_disableRight && _moveInput.x > 0) _moveInput.x = 0;
+
+        //Handle Run
+        if (!IsDashing)
 		{
 			if (IsWallJumping)
 				Run(Data.wallJumpRunLerp);
@@ -572,12 +580,10 @@ public class PlayerMovement : MonoBehaviour
 		movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
 
 		//set velocity y to 0.
-
-		if (_moveInput.y > 0)
+		if (_moveInput.y > 0 && !_disableslideUp )
 			RB.AddForce(movement * Vector2.up);
-		else if (_moveInput.y < 0) RB.AddForce(movement * Vector2.down);
-		else if (RB.velocity.y != 0) RB.velocity = new Vector2(RB.velocity.x, 0f);
-        Debug.Log("Slide|Force: "+movement * Vector2.up);
+		else if (_moveInput.y < 0 && !_disableslideDown) RB.AddForce(movement * Vector2.down);
+		else if (RB.velocity.y != 0 && !_disableslide) RB.velocity = new Vector2(RB.velocity.x, 0f);
     }
     #endregion
 
@@ -591,12 +597,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanJump()
     {
-		return LastOnGroundTime > 0 && !IsJumping;
+		return !_disableJump && LastOnGroundTime > 0 && !IsJumping;
     }
 
 	private bool CanWallJump()
     {
-		return LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+		return !_disableJump && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
 			 (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
 	}
 
@@ -612,7 +618,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDash()
 	{
-		if (!IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+		if (!_disableDash && !IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
 		{
 			StartCoroutine(nameof(RefillDash), 1);
 		}
@@ -622,7 +628,7 @@ public class PlayerMovement : MonoBehaviour
 
 	public bool CanSlide()
     {
-		if (LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0)
+		if (!_disableslide && LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0)
 			return true;
 		else
 			return false;
