@@ -163,13 +163,11 @@ public class PlayerMovement : MonoBehaviour
         if (_isKeySlide && Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
         {
             Mechanic.CountslideUp++;
-			Debug.Log("CountslideUp");
         }
 
         if (_isKeySlide && Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
         {
             Mechanic.CountslideDown++;
-            Debug.Log("CountslideDown");
         }
 
         #endregion
@@ -483,10 +481,12 @@ public class PlayerMovement : MonoBehaviour
 		//count number time of movement
 		Mechanic.CountJump++;
 
-		#endregion
-	}
+        #endregion
+        Debug.Log("Jump");
 
-	private void WallJump(int dir)
+    }
+
+    private void WallJump(int dir)
 	{
 		//Ensures we can't call Wall Jump multiple times from one press
 		LastPressedJumpTime = 0;
@@ -495,6 +495,7 @@ public class PlayerMovement : MonoBehaviour
 		LastOnWallLeftTime = 0;
 
 		#region Perform Wall Jump
+		RB.velocity = new Vector2(0f, 0f);
 		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
 
@@ -508,6 +509,7 @@ public class PlayerMovement : MonoBehaviour
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
+		Debug.Log("Wall jump");
 	}
 	#endregion
 
