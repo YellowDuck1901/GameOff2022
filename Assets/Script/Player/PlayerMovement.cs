@@ -23,9 +23,11 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsWallJumping { get; private set; }
 	public bool IsDashing { get; private set; }
 	public bool IsSliding { get; private set; }
+    public bool IsRun { get; private set; }
 
-	//Timers (also all fields, could be private and a method returning a bool could be used)
-	public float LastOnGroundTime { get; private set; }
+
+    //Timers (also all fields, could be private and a method returning a bool could be used)
+    public float LastOnGroundTime { get; private set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
@@ -172,6 +174,9 @@ public class PlayerMovement : MonoBehaviour
 
         #endregion
 
+
+        
+
         #region COLLISION CHECKS
         if (!IsDashing && !IsJumping)
 		{
@@ -250,10 +255,17 @@ public class PlayerMovement : MonoBehaviour
 				WallJump(_lastWallJumpDir);
 			}
 		}
-		#endregion
+        #endregion
 
-		#region DASH CHECKS
-		if (CanDash() && LastPressedDashTime > 0)
+        #region RUN CHECK
+		if(_moveInput.x != 0 && LastOnGroundTime > 0)
+		{
+			IsRun = true;
+        }
+        #endregion
+
+        #region DASH CHECKS
+        if (CanDash() && LastPressedDashTime > 0)
 		{
 			//Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
 			Sleep(Data.dashSleepTime); 
@@ -442,7 +454,6 @@ public class PlayerMovement : MonoBehaviour
 
 		//Convert this to a vector and apply to rigidbody
 		RB.AddForce(movement * Vector2.right, ForceMode2D.Force);
-
 		/*
 		 * For those interested here is what AddForce() will do
 		 * RB.velocity = new Vector2(RB.velocity.x + (Time.fixedDeltaTime  * speedDif * accelRate) / RB.mass, RB.velocity.y);
