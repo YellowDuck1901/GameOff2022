@@ -7,7 +7,11 @@ public class PlayerMovement : MonoBehaviour
 	//just paste in all the parameters, though you will need to manuly change all references in this script
 	public PlayerData Data;
 
+
     public static  bool _disableJump, _disableLeft, _disableRight, _disableslide, _disableslideUp, _disableslideDown, _disableDash;
+
+	[SerializeField] private Animator _anim;
+
     #region COMPONENTS
     public Rigidbody2D RB { get; private set; }
 	//Script to handle all player animations, all references can be safely removed if you're importing into your own project.
@@ -54,6 +58,8 @@ public class PlayerMovement : MonoBehaviour
     //Input Left: true when long-press, false when un press
     private bool _isKeyRight;
 
+    [SerializeField] private bool _isGrounded;
+
 	
     #endregion
 
@@ -95,6 +101,34 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		if((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && _isGrounded)
+		{
+			_anim.SetBool("Moving", true);
+		}
+		else
+		{
+            _anim.SetBool("Moving", false);
+        }
+
+		if (_isGrounded && Input.GetKeyDown(KeyCode.C))
+		{
+			_anim.SetBool("Jumping", true);
+		}
+		else
+		{
+            _anim.SetBool("Jumping", false);
+        }
+
+
+		if(RB.velocity.y < 0)
+		{
+            _anim.SetBool("Falling", true);
+        }
+		if(_isGrounded)
+        {
+            _anim.SetBool("Falling", false);
+        }
+
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
 		LastOnWallTime -= Time.deltaTime;
@@ -184,7 +218,12 @@ public class PlayerMovement : MonoBehaviour
                 }
 
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-            }		
+				_isGrounded = true;
+			}
+			else
+			{
+				_isGrounded = false;
+			}
 
 			//Right Wall Check
 			if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
