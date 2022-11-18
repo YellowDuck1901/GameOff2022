@@ -1,7 +1,9 @@
+using Ink.Runtime;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using Unity.VisualScripting;
 using UnityEngine;
 using Debug = UnityEngine.Debug;
 
@@ -20,7 +22,7 @@ public class Mechanic : MonoBehaviour
     }
 
     List<KeyCode> listKey = new List<KeyCode>() { KeyCode.A,KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow, KeyCode.C,KeyCode.X,KeyCode.Z,KeyCode.Space};
-
+    bool isPenatly;
     bool isLongPress_Jump, isLongPress_slide, isLongPress_Left, isLongPress_Right, isLongPress_Dash;
     public static int CountMoveLeft, CountMoveRight, CountDash,
         CountJump, CountWallJump, Countslide, CountslideUp, CountslideDown;
@@ -237,7 +239,7 @@ public class Mechanic : MonoBehaviour
         return null;
     }
 
-    IEnumerator limitNumberMovement(Movements moveType, int limitNumber)
+    public  IEnumerator limitNumberMovement(Movements moveType, int limitNumber)
     {
         int Oddcount = GetCountMovement(moveType);
         while (true)
@@ -245,13 +247,14 @@ public class Mechanic : MonoBehaviour
             if (GetCountMovement(moveType) - Oddcount >= limitNumber)
             {
                 Debug.Log("Trigger Penalty "+moveType);
+                isPenatly = true;
                 break;
             }
             yield return new WaitForEndOfFrame();
         }
     }
 
-    IEnumerator limitTimePressMovement(Movements moveType, float limitNumber)
+    public IEnumerator limitTimePressMovement(Movements moveType, float limitNumber)
     {
       
         while (true)
@@ -274,6 +277,7 @@ public class Mechanic : MonoBehaviour
                 {
                     timer = 0;
                     Debug.Log("trigger " + moveType);
+                    isPenatly = true;
                     break;
                 }
             }
@@ -281,16 +285,21 @@ public class Mechanic : MonoBehaviour
         }
     }
 
-    IEnumerator doActionInTimeRange(Movements moveType, int numberMovement, float limitTime)
+    public IEnumerator doActionInTimeRange(Movements moveType, int numberMovement, float limitTime)
     {
         yield return new WaitForSeconds(limitTime);
         int counter = GetCountMovement(moveType);
         SetCountMovement(moveType, 0);
         if (counter >= numberMovement)
         {
+            isPenatly = true;
             Debug.Log("fail");
         }
-        else Debug.Log("win");
+        else 
+        {
+            isPenatly = false;
+            Debug.Log("win");
+        }
     }
     
     public void setDisableMovement(Movements moveType,bool value)
@@ -322,6 +331,17 @@ public class Mechanic : MonoBehaviour
                 PlayerMovement._disableslideUp = value;
                 break;
         }
+    }
+
+    public void resetDisableMovement()
+    {
+        PlayerMovement._disableLeft = false;
+        PlayerMovement._disableRight = false;
+        PlayerMovement._disableDash = false;
+        PlayerMovement._disableJump = false;
+        PlayerMovement._disableslide = false;
+        PlayerMovement._disableslideDown = false;
+        PlayerMovement._disableslideUp = false;
     }
 
     private void Start()
