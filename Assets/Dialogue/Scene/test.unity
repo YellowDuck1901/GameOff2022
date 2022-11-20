@@ -529,13 +529,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 498f231f2c452bd4eaaf48c4568999a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
-  inkJSON: {fileID: 4900000, guid: 2d3062dda1227054ca10fc80eac83fba, type: 3}
 --- !u!4 &651312294 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 884852485362760585, guid: 49f315c7837d33f4a91d4a51bc2566e9, type: 3}
   m_PrefabInstance: {fileID: 884852484888306269}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &651312295
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651312286}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a2c1e3f098618294c9d381f912463644, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &745399166
 GameObject:
   m_ObjectHideFlags: 0
@@ -15612,6 +15630,54 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1195681768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1195681770}
+  - component: {fileID: 1195681771}
+  m_Layer: 0
+  m_Name: Level1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1195681770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195681768}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.8078448, y: -0.90554136, z: -0.12755553}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1195681771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195681768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d1bd6dbfce350941bc9c7a17d2b840a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inkJSON: {fileID: 4900000, guid: 2d3062dda1227054ca10fc80eac83fba, type: 3}
+  UnControllerDatas:
+  - {fileID: 11400000, guid: cc7350c6cf58f324a94ca8941b355767, type: 2}
+  isTrigger: 0
 --- !u!1 &1757126164
 GameObject:
   m_ObjectHideFlags: 0
@@ -15775,6 +15841,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 884852485362760584, guid: 49f315c7837d33f4a91d4a51bc2566e9, type: 3}
+      propertyPath: _anim
+      value: 
+      objectReference: {fileID: 651312295}
     - target: {fileID: 884852485362760585, guid: 49f315c7837d33f4a91d4a51bc2566e9, type: 3}
       propertyPath: m_RootOrder
       value: 0
