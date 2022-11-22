@@ -60,10 +60,11 @@ public class PlayerMovement : MonoBehaviour
     //Input Left: true when long-press, false when un press
     private bool _isKeyRight;
 
-    [SerializeField] private bool _isGrounded;
-    [SerializeField] private bool _isDashing;
-    [SerializeField] private bool _isRunning;
-    [SerializeField] private bool _isWallHang;
+    
+    [HideInInspector] public bool _isGrounded;
+    [HideInInspector] public bool _isDashing;
+    [HideInInspector] public bool _isRunning;
+    [HideInInspector] public bool _isWallHang;
     public ParticleSystem dust;
     public DashEffect dashEffect;
 
