@@ -15355,8 +15355,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KnotLevel: 
   inkJSON: {fileID: 4900000, guid: 2d3062dda1227054ca10fc80eac83fba, type: 3}
-  UnControllerFunctionDefault:
-  - {fileID: 11400000, guid: cabc9de9855bc07498373a676bcdc416, type: 2}
+  UnControllerFunctionDefault: []
   IsPentlyThisLevel: 0
   UnControllerFunctionPenalty: []
   loadScene: {fileID: 493172928}

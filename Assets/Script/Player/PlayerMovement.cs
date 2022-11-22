@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     //Input Left: true when long-press, false when un press
     private bool _isKeyRight;
 
-    
+
     [HideInInspector] public bool _isGrounded;
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isRunning;
@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+
         AnimationController();
 
 
@@ -705,13 +706,28 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationController()
     {
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && _isGrounded)
+        if (!_disableLeft)
         {
-            _anim.SetBool("Moving", true);
+            if (Input.GetKey(KeyCode.LeftArrow) && _isGrounded)
+            {
+                _anim.SetBool("Moving", true);
+            }
+            else
+            {
+                _anim.SetBool("Moving", false);
+            }
         }
-        else
+
+        if (!_disableRight)
         {
-            _anim.SetBool("Moving", false);
+            if (Input.GetKey(KeyCode.RightArrow) && _isGrounded)
+            {
+                _anim.SetBool("Moving", true);
+            }
+            else
+            {
+                _anim.SetBool("Moving", false);
+            }
         }
 
         if (_isWallHang)
@@ -730,15 +746,18 @@ public class PlayerMovement : MonoBehaviour
             _anim.SetInteger("WallHang", 0);
         }
 
-        if (_isGrounded && Input.GetKeyDown(KeyCode.C)
-            || _isGrounded && Input.GetKeyDown(KeyCode.Space))
+        if (!_disableJump)
         {
-            _anim.SetBool("Jumping", true);
-            CreateDust();
-        }
-        else
-        {
-            _anim.SetBool("Jumping", false);
+            if (_isGrounded && Input.GetKeyDown(KeyCode.C)
+                || _isGrounded && Input.GetKeyDown(KeyCode.Space))
+            {
+                _anim.SetBool("Jumping", true);
+                CreateDust();
+            }
+            else
+            {
+                _anim.SetBool("Jumping", false);
+            }
         }
 
 
@@ -751,27 +770,30 @@ public class PlayerMovement : MonoBehaviour
             _anim.SetBool("Falling", false);
         }
 
-
-        if (IsDashing)
+        if (!_disableDash)
         {
-            dashEffect.makeGhost = true;
-            if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
+            if (IsDashing)
             {
-                _anim.SetBool("Jumping", true);
+                dashEffect.makeGhost = true;
+                if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
+                {
+                    _anim.SetBool("Jumping", true);
+                }
+                else
+                {
+                    _isDashing = true;
+                    _anim.SetBool("Dashing", true);
+
+                }
             }
             else
             {
-                _isDashing = true;
-                _anim.SetBool("Dashing", true);
-
+                dashEffect.makeGhost = false;
+                _isDashing = false;
+                _anim.SetBool("Dashing", false);
             }
         }
-        else
-        {
-            dashEffect.makeGhost = false;
-            _isDashing = false;
-            _anim.SetBool("Dashing", false);
-        }
+
     }
 }
 
