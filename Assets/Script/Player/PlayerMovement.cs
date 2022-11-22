@@ -109,7 +109,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
+        if (_isGrounded)
+        {
+            CreateDust();
+        }
 
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
