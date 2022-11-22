@@ -13,6 +13,8 @@ public class Mechanic : MonoBehaviour
     {
         MoveLeft,
         MoveRight,
+        FaceLeft,
+        FaceRight,
         Dash,
         Jump,
         WallJump,
@@ -315,15 +317,12 @@ public class Mechanic : MonoBehaviour
             case Movements.MoveRight:
                 PlayerMovement._disableRight = value;
                 break;
-
             case Movements.Dash:
                 PlayerMovement._disableDash = value;
                 break;
-
             case Movements.Jump:
                 PlayerMovement._disableJump = value;
                 break;
-
             case Movements.Slide:
                 PlayerMovement._disableslide = value;
                 break;
@@ -332,6 +331,12 @@ public class Mechanic : MonoBehaviour
                 break;
             case Movements.SlideUp:
                 PlayerMovement._disableslideUp = value;
+                break;
+            case Movements.FaceLeft:
+                PlayerMovement._disableFaceLeft = value;
+                break;
+            case Movements.FaceRight:
+                PlayerMovement._disableFaceRight = value;
                 break;
         }
     }
