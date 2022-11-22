@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 442409199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.406, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1621813455}
@@ -15580,8 +15580,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 751344082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.494, y: 1.0896, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -8.494, y: 0.553, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1621813455}
@@ -15613,7 +15613,7 @@ MonoBehaviour:
   _groundCheckSize: {x: 0.49, y: 0.03}
   _frontWallCheckPoint: {fileID: 442409200}
   _backWallCheckPoint: {fileID: 927674669}
-  _wallCheckSize: {x: 0.5, y: 1}
+  _wallCheckSize: {x: 0.24, y: 1}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -15723,7 +15723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39e803bd20ce4744aa32bc95c5844f66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ghostDelay: 0.1
+  ghostDelay: 0.05
   ghost: {fileID: 801576784354559403, guid: 9089a1a029b33af4297fba2434b3765c, type: 3}
   makeGhost: 0
 --- !u!1 &927674668
@@ -15751,7 +15751,7 @@ Transform:
   m_GameObject: {fileID: 927674668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.405, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.65, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1621813455}

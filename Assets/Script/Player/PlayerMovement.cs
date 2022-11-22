@@ -108,67 +108,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && _isGrounded)
-        {
-            _anim.SetBool("Moving", true);
-        }
-        else
-        {
-            _anim.SetBool("Moving", false);
-        }
-
-        if (_isWallHang)
-        {
-            _anim.SetBool("WallHang", true);
-        }
-        else
-        {
-            _anim.SetBool("WallHang", false);
-        }
-
-        if (_isGrounded && Input.GetKeyDown(KeyCode.C)
-            || _isGrounded && Input.GetKeyDown(KeyCode.Space))
-        {
-            _anim.SetBool("Jumping", true);
-            CreateDust();
-        }
-        else
-        {
-            _anim.SetBool("Jumping", false);
-        }
-
-
-        if (RB.velocity.y < 0 && !IsDashing && !_isWallHang)
-        {
-            _anim.SetBool("Falling", true);
-        }
-        if (_isGrounded || IsDashing || _isWallHang)
-        {
-            _anim.SetBool("Falling", false);
-        }
-
-
-        if (IsDashing)
-        {
-            dashEffect.makeGhost = true;
-            if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
-            {
-                _anim.SetBool("Jumping", true);
-            }
-            else
-            {
-                _isDashing = true;
-                _anim.SetBool("Dashing", true);
-
-            }
-        }
-        else
-        {
-            dashEffect.makeGhost = false;
-            _isDashing = false;
-            _anim.SetBool("Dashing", false);
-        }
+        AnimationController();
 
 
 
@@ -248,9 +188,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         #endregion
-
-
-
 
         #region COLLISION CHECKS
         if (!IsDashing && !IsJumping)
@@ -763,6 +700,77 @@ public class PlayerMovement : MonoBehaviour
     void CreateDust()
     {
         dust.Play();
+    }
+
+    public void AnimationController()
+    {
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && _isGrounded)
+        {
+            _anim.SetBool("Moving", true);
+        }
+        else
+        {
+            _anim.SetBool("Moving", false);
+        }
+
+        if (_isWallHang)
+        {
+            if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow))
+            {
+                _anim.SetInteger("WallHang", 2);
+            }
+            else
+            {
+                _anim.SetInteger("WallHang", 1);
+            }
+        }
+        else
+        {
+            _anim.SetInteger("WallHang", 0);
+        }
+
+        if (_isGrounded && Input.GetKeyDown(KeyCode.C)
+            || _isGrounded && Input.GetKeyDown(KeyCode.Space))
+        {
+            _anim.SetBool("Jumping", true);
+            CreateDust();
+        }
+        else
+        {
+            _anim.SetBool("Jumping", false);
+        }
+
+
+        if (RB.velocity.y < 0 && !IsDashing && !_isWallHang)
+        {
+            _anim.SetBool("Falling", true);
+        }
+        if (_isGrounded || IsDashing || _isWallHang)
+        {
+            _anim.SetBool("Falling", false);
+        }
+
+
+        if (IsDashing)
+        {
+            dashEffect.makeGhost = true;
+            if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
+            {
+                _anim.SetBool("Jumping", true);
+            }
+            else
+            {
+                _isDashing = true;
+                _anim.SetBool("Dashing", true);
+
+            }
+        }
+        else
+        {
+            dashEffect.makeGhost = false;
+            _isDashing = false;
+            _anim.SetBool("Dashing", false);
+        }
     }
 }
 
