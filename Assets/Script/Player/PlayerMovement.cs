@@ -830,8 +830,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            _anim.SetBool("Moving", false);
+            _anim.SetBool("Dashing", false);
             _anim.SetBool("Jumping", false);
-            dashEffect.makeGhost = false;
+            _anim.SetBool("Falling", false);
+            _anim.Play("Idle");
         }
     }
 }
