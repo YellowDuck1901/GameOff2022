@@ -6,6 +6,7 @@ TagManager:
   tags:
   - WayPoint
   - PlatformSpeed
+  - StartPosition
   layers:
   - Default
   - TransparentFX

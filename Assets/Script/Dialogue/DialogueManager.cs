@@ -4,18 +4,17 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting.Antlr3.Runtime.Tree;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-    [Header("UI")]
-    [SerializeField] private GameObject dialoguePanel;
+     [SerializeField] private GameObject dialoguePanel;
+    [SerializeField] TextMeshPro dialogueText;
 
-    [SerializeField] private TextMeshPro dialogueText;
 
     private Story currentStory;
 
-     public bool dialogueIsPlaying { get;private set; }
+     public static bool dialogueIsPlaying { get;private set; }
 
     private static DialogueManager instance;
 
@@ -48,6 +47,7 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
+
         if(instance != null)
         {
             Debug.LogWarning("find onother dialogue manager");
@@ -119,7 +119,6 @@ public class DialogueManager : MonoBehaviour
         else
         {
             skipTyping = true;
-            Debug.Log("stop");
         }
     }
 
@@ -149,7 +148,6 @@ public class DialogueManager : MonoBehaviour
             if (skipTyping)
             {
                 skipTyping = false;
-                Debug.Log("skip");
                 dialogueText.text = line;
                 break;
             }

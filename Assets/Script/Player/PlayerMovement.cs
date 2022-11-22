@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
     //Input Left: true when long-press, false when un press
     private bool _isKeyRight;
 
-    [SerializeField] private bool _isGrounded;
+    public bool _isGrounded;
 
 	
     #endregion
@@ -266,8 +266,8 @@ public class PlayerMovement : MonoBehaviour
 
 		if (!IsDashing)
 		{
-			//Jump
-			if (CanJump() && LastPressedJumpTime > 0)
+            //Jump
+            if (CanJump() && LastPressedJumpTime > 0)
 			{
 				IsJumping = true;
 				IsWallJumping = false;
@@ -277,8 +277,9 @@ public class PlayerMovement : MonoBehaviour
 
 				//AnimHandler.startedJumping = true;
 			}
-			//WALL JUMP
-			else if (CanWallJump() && LastPressedJumpTime > 0)
+
+            //WALL JUMP
+            else if (CanWallJump() && LastPressedJumpTime > 0)
 			{
 				IsWallJumping = true;
 				IsJumping = false;
@@ -378,8 +379,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 		#endregion
 
-		Debug.Log(IsRun);
-		
     }
 
     private void FixedUpdate()
@@ -533,7 +532,6 @@ public class PlayerMovement : MonoBehaviour
 		Mechanic.CountJump++;
 
         #endregion
-        Debug.Log("Jump");
 
     }
 
@@ -560,7 +558,6 @@ public class PlayerMovement : MonoBehaviour
 		//The default mode will apply are force instantly ignoring masss
 		RB.AddForce(force, ForceMode2D.Impulse);
 		#endregion
-		Debug.Log("Wall jump");
 	}
 	#endregion
 

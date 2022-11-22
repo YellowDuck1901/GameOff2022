@@ -22,7 +22,6 @@ public class Mechanic : MonoBehaviour
     }
 
     List<KeyCode> listKey = new List<KeyCode>() { KeyCode.A,KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow, KeyCode.C,KeyCode.X,KeyCode.Z,KeyCode.Space};
-    bool isPenatly;
     bool isLongPress_Jump, isLongPress_slide, isLongPress_Left, isLongPress_Right, isLongPress_Dash;
     public static int CountMoveLeft, CountMoveRight, CountDash,
         CountJump, CountWallJump, Countslide, CountslideUp, CountslideDown;
@@ -246,8 +245,9 @@ public class Mechanic : MonoBehaviour
         {
             if (GetCountMovement(moveType) - Oddcount >= limitNumber)
             {
-                Debug.Log("Trigger Penalty "+moveType);
-                isPenatly = true;
+                Debug.Log("Penalty " + moveType);
+                PenatlyManager.Penatly = true;
+
                 break;
             }
             yield return new WaitForEndOfFrame();
@@ -276,8 +276,9 @@ public class Mechanic : MonoBehaviour
                 if (timer >= limitNumber)
                 {
                     timer = 0;
-                    Debug.Log("trigger " + moveType);
-                    isPenatly = true;
+                    Debug.Log("Penalty " + moveType);
+                    PenatlyManager.Penatly = true;
+
                     break;
                 }
             }
@@ -292,18 +293,20 @@ public class Mechanic : MonoBehaviour
         SetCountMovement(moveType, 0);
         if (counter >= numberMovement)
         {
-            isPenatly = true;
-            Debug.Log("fail");
+            Debug.Log("Penalty " + moveType);
+            PenatlyManager.Penatly = true;
+
         }
         else 
         {
-            isPenatly = false;
-            Debug.Log("win");
+            Debug.Log("Not Penalty " + moveType);
         }
     }
     
     public void setDisableMovement(Movements moveType,bool value)
     {
+        Debug.Log("Penalty " + moveType + value);
+        PenatlyManager.Penatly = true;
         switch (moveType)
         {
             case Movements.MoveLeft:
@@ -342,27 +345,6 @@ public class Mechanic : MonoBehaviour
         PlayerMovement._disableslide = false;
         PlayerMovement._disableslideDown = false;
         PlayerMovement._disableslideUp = false;
-    }
-
-    private void Start()
-    {
-        //StartCoroutine(limitNumberMovement(Movements.Jump, 3));
-        //StartCoroutine(limitNumberMovement(Movements.Dash, 3));
-        //StartCoroutine(limitNumberMovement(Movements.MoveRight, 3));
-        //StartCoroutine(limitNumberMovement(Movements.MoveLeft, 3));
-        //StartCoroutine(limitNumberMovement(Movements.slide, 3));
-        //StartCoroutine(limitNumberMovement(Movements.SlideUp, 3));
-        //StartCoroutine(limitNumberMovement(Movements.SlideDown, 3));
-
-        //StartCoroutine(limitTimePressMovement(Movements.Dash, 3f));
-        //StartCoroutine(limitTimePressMovement(Movements.MoveLeft, 3f));
-        //StartCoroutine(limitTimePressMovement(Movements.MoveRight, 3f));
-        //StartCoroutine(limitTimePressMovement(Movements.Slide, 3f));
-
-        //StartCoroutine(doActionInTimeRange(Movements.Jump, 3, 4));
-        //StartCoroutine(doActionInTimeRange(Movements.Slide, 3, 4));
-
-        //setDisableMovement(Movements.Jump, true);
     }
 
     private void Update()

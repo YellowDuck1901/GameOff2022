@@ -40,6 +40,14 @@ public class StatusPlayer : MonoBehaviour
             return this.isCutSence;
         }
     }
-       
 
+    public void OnLevelWasLoaded(int level)
+    {
+        FindStartPos();
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPosition").transform.position;
+    }
 }
