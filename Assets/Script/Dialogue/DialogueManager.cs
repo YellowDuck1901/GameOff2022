@@ -86,13 +86,7 @@ public class DialogueManager : MonoBehaviour
         if (!dialogueIsPlaying)
         {
             #region Disable Movement
-            PlayerMovement._disableJump = true;
-            PlayerMovement._disableLeft = true;
-            PlayerMovement._disableRight = true;
-            PlayerMovement._disableslide = true;
-            PlayerMovement._disableslideUp = true;
-            PlayerMovement._disableslideDown = true;
-            PlayerMovement._disableDash = true;
+            PlayerMovement._disableAllMovement = true;
             #endregion
 
             currentStory = new Story(inkJSON.text);
@@ -129,13 +123,7 @@ public class DialogueManager : MonoBehaviour
         dialogueText.text = "";
 
         #region Enable Movement
-        PlayerMovement._disableJump = false;
-        PlayerMovement._disableLeft = false;
-        PlayerMovement._disableRight = false;
-        PlayerMovement._disableslide = false;
-        PlayerMovement._disableslideUp = false;
-        PlayerMovement._disableslideDown = false;
-        PlayerMovement._disableDash = false;
+        PlayerMovement._disableAllMovement = false;
         #endregion
     }
 

@@ -35,8 +35,6 @@ public class LevelData : MonoBehaviour
     private void Start()
     {
         DialogueManager.getInstance().EnterDialogueMode(inkJSON);
-
-        
     }
 
     private void Update()
