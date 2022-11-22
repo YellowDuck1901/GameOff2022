@@ -7,6 +7,21 @@ public class StatusPlayer : MonoBehaviour
     [SerializeField]
     private bool isDead, isImmortal, isCutSence;
 
+    private static StatusPlayer playerInstance;
+    void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (playerInstance == null)
+        {
+            playerInstance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public bool IsDead
     {
         set

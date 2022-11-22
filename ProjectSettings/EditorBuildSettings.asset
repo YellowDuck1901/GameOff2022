@@ -9,12 +9,69 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/Level/LevelTest1.unity
-    guid: 4418646b2a74b8849a58cdb448f4c67e
+    path: Assets/Scenes/TempateLevel/LevelTest5.unity
+    guid: 6eb2922eb26574b4c8102491a0975f4b
   - enabled: 1
-    path: Assets/Scenes/Level/LevelTest2.unity
-    guid: e7d632dd478c1f942b9ec93ccd0e9296
+    path: Assets/Scenes/TempateLevel/LevelTest4.unity
+    guid: d6116c407f7b1c944b93f41c54286c33
   - enabled: 1
-    path: Assets/Scenes/Level/LevelTest3.unity
-    guid: a20f19912373efe439e06652d7fc3588
+    path: Assets/Scenes/GameLevel/Level 1.unity
+    guid: d36642a175a7c544b91d6ee33e702c06
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 2.unity
+    guid: 15b3b7714172b8542a1d1dae1f3728b5
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 3.unity
+    guid: 727418bfda83c344cb9d634804f9cce1
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 4.unity
+    guid: 092a7d2d657c86c429aeb622c3f1cb42
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 5.unity
+    guid: 18adefd8ee5ba6f42933e9768d64106c
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 6.unity
+    guid: 64801f1621f5e724981a0fbed804d68d
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 7.unity
+    guid: e3dfd357d1c175b4cae79d8357e96025
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 8.unity
+    guid: 782c99b8ff4cba04a93d55a3ec61dc14
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 9.unity
+    guid: 6509c58fd7be30547b0c65d1892ee809
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 10.unity
+    guid: 12f8d09f5244e354aa9fb12435644dcd
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 11.unity
+    guid: 341bbe115aca0da419665e0707623f35
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 12.unity
+    guid: 48d90c7f1bb2f054aa98839d42180e29
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 13.unity
+    guid: 47e084cf6dbc6144695e6407da0d773b
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 14.unity
+    guid: 271c0d444f4c71d4284cd630efd05cea
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 15.unity
+    guid: dc2681b785dc13142a163398e7470a94
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 16.unity
+    guid: 2e163343a5c89f94ca6a6c4e63264139
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 17.unity
+    guid: 4ccff5b7f22935e42acb6d714271a0f7
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 18.unity
+    guid: 5131206f2153ad84fb809685ceea6efc
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 19.unity
+    guid: 5e99512a2a03c3d4ebafcbaae38d06d8
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 20.unity
+    guid: 291bfc54e0fbc3b4e8bb49dc71625be3
   m_configObjects: {}

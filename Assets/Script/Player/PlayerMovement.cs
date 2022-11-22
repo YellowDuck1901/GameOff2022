@@ -833,6 +833,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            dashEffect.makeGhost = false;
+            _isDashing = false;
+
             _anim.SetBool("Moving", false);
             _anim.SetBool("Dashing", false);
             _anim.SetBool("Jumping", false);

@@ -8,8 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class DialogueManager : MonoBehaviour
 {
-     [SerializeField] private GameObject dialoguePanel;
-    [SerializeField] TextMeshPro dialogueText;
+    private GameObject Player;
+    private GameObject dialoguePanel;
+    TextMeshPro dialogueText;
 
 
     private Story currentStory;
@@ -51,8 +52,7 @@ public class DialogueManager : MonoBehaviour
         if(instance != null)
         {
             Debug.LogWarning("find onother dialogue manager");
-        }
-        instance = this;
+        }else  instance = this;
 
         audioSource = this.gameObject.AddComponent<AudioSource>();
     }
@@ -63,6 +63,10 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
+        Player = GameObject.Find("Player");
+        dialoguePanel = FindChildrenObject.GetChildWithName(Player, "DialoguePanel");
+        dialogueText = FindChildrenObject.GetChildWithName(dialoguePanel, "Text").GetComponent<TextMeshPro>();
+
         dialoguePanel.SetActive(false);
     }
 
