@@ -20,7 +20,7 @@ It’s about time
 Oh hey, I didn’t see you there
 Since you are my player, we have no choice but to help each other get through this pig hole of a game. 
 Control me to get over this, I mean how hard can it be? Heh
-Remember, my body my choice, I won’t tolerate such behavior that goes against my will.
+But remember, my body my choice, I won’t tolerate such behavior that goes against my will.
 For now, let’s move on with simple movement. 
 -> END
 
@@ -66,8 +66,22 @@ I wonder if it is me or if everything is a little bit too hot.
 THE FLOOR IS LAVA!!!!
 -> END
 
+=== Level_10 ===
+My hand is numb, I don’t want to hang on those rocky walls anymore.
+How to pass the level you ask? Well maybe jump and dash?
+It's not my job, you have to figure it out lol
+-> END
+
 === Level_11 ===
 Can you see that cat over there, poor little cat, we must save it!
+-> END
+
+=== Level_11_Collect ===
+Poor little cat, come here I will help you.
+-> END
+
+=== Level_11_Prevent ===
+I told you that cat is in danger, so go save it or I won’t go any further.
 -> END
 
 === Level_12 ===
@@ -82,8 +96,28 @@ RUN
 
 === Level_15 ===
 I am so hungry, that cheese there looks so delicious, take it!
-Nếu không lấy vật phẩm (reset lại màn chơi):
+-> END
+
+=== Level_15_Prevent ===
 I told you that I am so hungry, so get that cheese, or I won’t go any further.
+-> END
+
+=== Level_15_Collect ===
+Winner winner chicken dinner.
+-> END
+
+=== Level_16 ===
+Don’t mean to be picky but right now I am kinda full
+So please don’t jump any more than 4 times
+-> END
+
+=== Level_17 ===
+Everything is fine now, let’s continue the adventure
+-> END
+
+=== Level_17_Prevent ===
+Aghhh, my stomach is HURT!!
+Can’t jump any more than 4 or I’m gonna puke
 -> END
 
 === Level_18 ===

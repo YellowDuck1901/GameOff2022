@@ -8,6 +8,12 @@ public class LevelData : MonoBehaviour
 {
     [Header("Script Game")]
     [SerializeField] string KnotLevel;
+    private string strKnotPenatly = "_Penalty";
+    private string strKnotCollect = "_Collect";
+    private string strKnotPreventNextLevel = "_Prevent";
+
+
+
     [SerializeField] TextAsset inkJSON;
 
     [Space(10)]
@@ -34,7 +40,12 @@ public class LevelData : MonoBehaviour
 
     private void Start()
     {
-        DialogueManager.getInstance().EnterDialogueMode(inkJSON);
+        if (IsPentlyThisLevel)
+        {
+            DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel + strKnotPenatly);
+        }
+            DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel);
+
     }
 
     private void Update()
@@ -100,17 +111,15 @@ public class LevelData : MonoBehaviour
         //prevent next level
         else if(PreventNextLevel.isPreventNextLevelDialogue) 
         {
-            //check Knot
-            //check line
             PreventNextLevel.isPreventNextLevelDialogue = false;
-            DialogueManager.getInstance().EnterDialogueMode(inkJSON);
+            DialogueManager.getInstance().EnterDialogueMode(inkJSON,KnotLevel + strKnotPreventNextLevel);
         }
 
         //dialogue when ever trigger collect event
         if (Collect.isCollectDialogue)
         {
             Collect.isCollectDialogue = false;
-            DialogueManager.getInstance().EnterDialogueMode(inkJSON);
+            DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel + strKnotCollect);
         }
     }
 

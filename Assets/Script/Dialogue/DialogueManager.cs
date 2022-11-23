@@ -80,7 +80,6 @@ public class DialogueManager : MonoBehaviour
 
         if (InputManager.GetInstance().GetInteractPressed())
         {
-            Debug.Log("Continue");
             ContinueStory();
         }
     }
@@ -94,6 +93,23 @@ public class DialogueManager : MonoBehaviour
             #endregion
 
             currentStory = new Story(inkJSON.text);
+            dialogueIsPlaying = true;
+            canvasDialogue.SetActive(true);
+            ContinueStory();
+        }
+    }
+
+    public void EnterDialogueMode(TextAsset inkJSON, string Knot)
+    {
+        if (!dialogueIsPlaying)
+        {
+            #region Disable Movement
+            PlayerMovement._disableAllMovement = true;
+            #endregion
+
+            currentStory = new Story(inkJSON.text);
+
+            currentStory.ChoosePathString(Knot);
             dialogueIsPlaying = true;
             canvasDialogue.SetActive(true);
             ContinueStory();
