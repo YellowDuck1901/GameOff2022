@@ -9,8 +9,9 @@ using UnityEngine.SceneManagement;
 public class DialogueManager : MonoBehaviour
 {
     private GameObject Player;
-    private GameObject dialoguePanel;
-    TextMeshPro dialogueText;
+
+    public  GameObject canvasDialogue;
+    public TextMeshProUGUI dialogueText;
 
 
     private Story currentStory;
@@ -64,10 +65,9 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         Player = GameObject.Find("Player");
-        dialoguePanel = FindChildrenObject.GetChildWithName(Player, "DialoguePanel");
-        dialogueText = FindChildrenObject.GetChildWithName(dialoguePanel, "Text").GetComponent<TextMeshPro>();
-
-        dialoguePanel.SetActive(false);
+        canvasDialogue = GameObject.Find("DialogueCanvas");
+        dialogueText = FindChildrenObject.GetChildWithName(canvasDialogue, "TextDialogue").GetComponent<TextMeshProUGUI>();
+        canvasDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -95,7 +95,7 @@ public class DialogueManager : MonoBehaviour
 
             currentStory = new Story(inkJSON.text);
             dialogueIsPlaying = true;
-            dialoguePanel.SetActive(true);
+            canvasDialogue.SetActive(true);
             ContinueStory();
         }
     }
@@ -123,7 +123,7 @@ public class DialogueManager : MonoBehaviour
     private void ExitDialogueMode()
     {
         dialogueIsPlaying = false;
-        dialoguePanel.SetActive(false);
+        canvasDialogue.SetActive(false);
         dialogueText.text = "";
 
         #region Enable Movement
