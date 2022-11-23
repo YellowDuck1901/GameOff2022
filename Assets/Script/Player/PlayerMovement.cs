@@ -64,7 +64,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool _isGrounded;
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isRunning;
-    [HideInInspector] public bool _isWallHang;
+    public bool _isWallHang;
     public ParticleSystem dust;
     public DashEffect dashEffect;
 
@@ -109,10 +109,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (_isGrounded)
-        {
-            CreateDust();
-        }
 
         #region TIMERS
         LastOnGroundTime -= Time.deltaTime;
@@ -220,7 +216,7 @@ public class PlayerMovement : MonoBehaviour
                     || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)) && !IsWallJumping)
             {
                 LastOnWallRightTime = Data.coyoteTime;
-                if (!_isGrounded)
+                if (!_isGrounded && Input.GetKey(KeyCode.Z))
                 {
                     _isWallHang = true;
                 }
@@ -229,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
                 || (Physics2D.OverlapBox(_backWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)) && !IsWallJumping)
             {
                 LastOnWallLeftTime = Data.coyoteTime;
-                if (!_isGrounded)
+                if (!_isGrounded && Input.GetKey(KeyCode.Z))
                 {
                     _isWallHang = true;
                 }
