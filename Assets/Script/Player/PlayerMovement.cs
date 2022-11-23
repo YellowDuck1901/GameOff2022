@@ -45,7 +45,8 @@ public class PlayerMovement : MonoBehaviour
     private int _lastWallJumpDir;
 
     //Dash
-    private int _dashesLeft;
+    [HideInInspector]
+    public int _dashesLeft;
     private bool _dashRefilling;
     private Vector2 _lastDashDir;
     private bool _isDashAttacking;
@@ -95,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Layers & Tags")]
     [SerializeField] private LayerMask _groundLayer;
     #endregion
+    SpriteRenderer sr;
 
     private void Awake()
     {
@@ -104,6 +106,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        sr = gameObject.GetComponent<SpriteRenderer>();
         SetGravityScale(Data.gravityScale);
         IsFacingRight = true;
     }
@@ -567,6 +570,8 @@ public class PlayerMovement : MonoBehaviour
     //Dash Coroutine
     private IEnumerator StartDash(Vector2 dir)
     {
+        sr.color = new Color(0.3f, 0.8f, 1f, 1f);
+
         //Overall this method of dashing aims to mimic Celeste, if you're looking for
         // a more physics-based approach try a method similar to that used in the jump
 
@@ -612,11 +617,13 @@ public class PlayerMovement : MonoBehaviour
     //Short period before the player is able to dash again
     private IEnumerator RefillDash(int amount)
     {
+        sr.color = Color.white;
         //SHoet cooldown, so we can't constantly dash along the ground, again this is the implementation in Celeste, feel free to change it up
         _dashRefilling = true;
         yield return new WaitForSeconds(Data.dashRefillTime);
         _dashRefilling = false;
         _dashesLeft = Mathf.Min(Data.dashAmount, _dashesLeft + 1);
+
     }
     #endregion
 
