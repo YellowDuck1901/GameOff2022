@@ -130,8 +130,8 @@ Transform:
   m_GameObject: {fileID: 299025741569241200}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.494, y: 0.553, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.65, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.6, y: 0.55714285, z: 3.4285715}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 299025740690407789}
   - {fileID: 299025741563749093}
@@ -245,7 +245,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.000091552734, y: 0.010565594}
+  m_Offset: {x: 0.0055205524, y: 0.010565579}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -256,7 +256,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.95, y: 1.76}
+  m_Size: {x: 0.8938773, y: 1.76}
   m_EdgeRadius: 0
 --- !u!114 &299025741569241207
 MonoBehaviour:
@@ -279,10 +279,10 @@ MonoBehaviour:
   dust: {fileID: 299025741836568189}
   dashEffect: {fileID: 299025741569241209}
   _groundCheckPoint: {fileID: 299025741749643461}
-  _groundCheckSize: {x: 0.49, y: 0.03}
+  _groundCheckSize: {x: 0.41, y: 0.035}
   _frontWallCheckPoint: {fileID: 299025741393725778}
   _backWallCheckPoint: {fileID: 299025742013733007}
-  _wallCheckSize: {x: 0.24, y: 1}
+  _wallCheckSize: {x: 0.12, y: 0.6}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
