@@ -64,7 +64,8 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool _isGrounded;
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isRunning;
-    public bool _isWallHang;
+    [HideInInspector] public bool _isWallHang;
+    [HideInInspector] public bool _isGoLeft;
     public ParticleSystem dust;
     public DashEffect dashEffect;
 
@@ -725,10 +726,12 @@ public class PlayerMovement : MonoBehaviour
                 if (Input.GetKey(KeyCode.LeftArrow) && _isGrounded)
                 {
                     _anim.SetBool("Moving", true);
+                    _isGoLeft = true;
                 }
                 else
                 {
                     _anim.SetBool("Moving", false);
+                    _isGoLeft = false;
                 }
             }
             else
@@ -738,13 +741,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (!_disableRight)
             {
-                if (Input.GetKey(KeyCode.RightArrow) && _isGrounded)
+                if ( Input.GetKey(KeyCode.RightArrow) && _isGrounded)
                 {
                     _anim.SetBool("Moving", true);
                 }
                 else
                 {
-                    _anim.SetBool("Moving", false);
+                    if(!_isGoLeft)
+                    {
+                        _anim.SetBool("Moving", false);
+                    }
                 }
             }
             else
