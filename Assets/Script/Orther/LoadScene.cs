@@ -8,27 +8,28 @@ public class LoadScene : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField]
-     private string NextSence;
+     public string NextScene;
 
     [SerializeField]
-    private float ColdDownTime;
+    public float ColdDownTime;
 
     private void Start()
     {
     }
-    public IEnumerator WithColdDown()
+    public IEnumerator WithColdDown(string NextScene, float ColdDownTime)
     {
         while (true)
         {
             yield return new WaitForSeconds(ColdDownTime);
-            SceneManager.LoadScene(NextSence);
+            SceneManager.LoadScene(NextScene);
             break;
         }
     }
 
-    public void openSceneWithColdDown()
+    public void openSceneWithColdDown(string NextScene, float ColdDownTime)
     {
-        StartCoroutine(WithColdDown());
+        Debug.Log(NextScene);
+        StartCoroutine(WithColdDown(NextScene, ColdDownTime));
     }
 
    

@@ -105,7 +105,7 @@ public class LevelData : MonoBehaviour
         if (PreventNextLevel.isNextLevel)
         {
             PreventNextLevel.isNextLevel = false;
-            loadScene.openSceneWithColdDown();
+            loadScene.openSceneWithColdDown(loadScene.NextScene, loadScene.ColdDownTime);
         }
 
         //prevent next level
