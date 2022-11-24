@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghostDelay: 0.05
-  ghost: {fileID: 801576784354559403, guid: 9089a1a029b33af4297fba2434b3765c, type: 3}
+  ghost: {fileID: 7185584979358059169, guid: 7d19fc7e91e7c2649b131540efcd2d4f, type: 3}
   makeGhost: 0
 --- !u!1 &299025741749643460
 GameObject:
