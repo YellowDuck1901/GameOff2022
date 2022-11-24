@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StatusPlayer : MonoBehaviour
 {
@@ -8,6 +10,13 @@ public class StatusPlayer : MonoBehaviour
     private bool isDead, isImmortal, isCutSence;
 
     private static StatusPlayer playerInstance;
+
+    private LoadScene LoadScene;
+
+    private void Start()
+    {
+        LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
+    }
     void Awake()
     {
         DontDestroyOnLoad(this);
@@ -28,6 +37,16 @@ public class StatusPlayer : MonoBehaviour
         {
             if (!IsImmortal)
                 this.isDead = value;
+            if (this.isDead)
+            {
+                this.isDead = false;
+                Debug.Log("Load Scene");
+                if(LoadScene == null)
+                {
+                    LoadScene.openSceneWithColdDown(SceneManager.GetActiveScene().name, 0f);
+                }
+                FindStartPos();
+            }
         }
         get { return this.isDead; }
     }
@@ -58,10 +77,11 @@ public class StatusPlayer : MonoBehaviour
 
     public void OnLevelWasLoaded(int level)
     {
+        LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
         FindStartPos();
     }
 
-    void FindStartPos()
+    public void FindStartPos()
     {
         transform.position = GameObject.FindWithTag("StartPosition").transform.position;
     }

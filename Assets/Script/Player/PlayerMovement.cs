@@ -652,7 +652,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMovingRight != IsFacingRight)
         {
-            Debug.Log(_disableFaceLeft);
             if (IsFacingRight && !_disableAllMovement && !_disableFaceLeft) //turn left
             {
                 Turn();

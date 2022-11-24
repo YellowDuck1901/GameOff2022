@@ -28,7 +28,6 @@ public class LoadScene : MonoBehaviour
 
     public void openSceneWithColdDown(string NextScene, float ColdDownTime)
     {
-        Debug.Log(NextScene);
         StartCoroutine(WithColdDown(NextScene, ColdDownTime));
     }
 

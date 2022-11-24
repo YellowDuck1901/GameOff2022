@@ -7,18 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class Spike : MonoBehaviour
 {
-    public LoadScene LoadLevel;
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag.Equals("Player"))
         {
             StatusPlayer sp = collision.gameObject.GetComponent<StatusPlayer>();
-            LoadLevel.openSceneWithColdDown(SceneManager.GetActiveScene().name,0f);
-
-            // reset penatly
+            // reset penaty
             PenatlyManager.Penatly = false; 
-            //sp.IsDead = true;
+            sp.IsDead = true;
         }
     }
 }
