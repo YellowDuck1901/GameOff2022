@@ -280,10 +280,10 @@ MonoBehaviour:
   dust: {fileID: 299025741836568189}
   dashEffect: {fileID: 299025741569241209}
   _groundCheckPoint: {fileID: 299025741749643461}
-  _groundCheckSize: {x: 0.41, y: 0.035}
+  _groundCheckSize: {x: 0.46, y: 0.035}
   _frontWallCheckPoint: {fileID: 299025741393725778}
   _backWallCheckPoint: {fileID: 299025742013733007}
-  _wallCheckSize: {x: 0.12, y: 0.6}
+  _wallCheckSize: {x: 0.12, y: 0.79}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128

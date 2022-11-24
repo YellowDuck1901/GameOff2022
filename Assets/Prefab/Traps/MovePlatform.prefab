@@ -165,7 +165,7 @@ MonoBehaviour:
   - {fileID: 4571035430153428798}
   - {fileID: 4571035430568499222}
   - {fileID: 4571035430127804262}
-  moveSpeed: 2
+  moveSpeed: 1
   target: 0
 --- !u!50 &4571035429421291472
 Rigidbody2D:

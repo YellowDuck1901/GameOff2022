@@ -13,6 +13,14 @@ public class MovingPlatform : MonoBehaviour
     [SerializeField]
     private int target;
 
+    private GameObject player;
+    private PlayerMovement PlayerMovement;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+        PlayerMovement = player.GetComponent<PlayerMovement>();
+    }
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, wayPoints[target].position, moveSpeed * Time.fixedDeltaTime);
@@ -32,14 +40,37 @@ public class MovingPlatform : MonoBehaviour
             }
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject == player && (PlayerMovement._isGrounded || PlayerMovement.IsSliding))
+        {
+            player.transform.parent = gameObject.transform;
+        }
+    }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject == player && (PlayerMovement._isGrounded || PlayerMovement.IsSliding))
+        {
+            player.transform.parent = gameObject.transform;
+        }
+    }
 
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject == player)
+        {
+            player.transform.parent = null;
+        }
+    }
     private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlatformSpeed"))
         {
+
             moveSpeed = Int32.Parse(collision.gameObject.name);
         }
+
     }
     void OnDrawGizmosSelected()
     {
