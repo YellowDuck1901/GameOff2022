@@ -10017,14 +10017,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 299025741569241207, guid: b39a0927c4330b94488593ec349ef240, type: 3}
-      propertyPath: _wallCheckSize.y
-      value: 0.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 299025741569241207, guid: b39a0927c4330b94488593ec349ef240, type: 3}
-      propertyPath: _groundCheckSize.x
-      value: 0.46
-      objectReference: {fileID: 0}
     - target: {fileID: 2751726292575229509, guid: b39a0927c4330b94488593ec349ef240, type: 3}
       propertyPath: m_IsActive
       value: 0

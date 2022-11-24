@@ -40,7 +40,6 @@ public class StatusPlayer : MonoBehaviour
             if (this.isDead)
             {
                 this.isDead = false;
-                Debug.Log("Load Scene");
                 if(LoadScene == null)
                 {
                     LoadScene.openSceneWithColdDown(SceneManager.GetActiveScene().name, 0f);

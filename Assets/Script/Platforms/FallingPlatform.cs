@@ -10,7 +10,12 @@ public class FallingPlatform : MonoBehaviour
     private float destroyDelay = 2f;
 
     [SerializeField] private Rigidbody2D rb;
+    private Transform originPostion;
 
+    private void Start()
+    {
+        originPostion = gameObject.transform;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
@@ -21,8 +26,15 @@ public class FallingPlatform : MonoBehaviour
 
     private IEnumerator Fall()
     {
+        Vector3 pos = originPostion.position;
+        Debug.Log("Origin"+ pos);
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic;
-        Destroy(gameObject, destroyDelay);
+        yield return new WaitForSeconds(0.5f);
+        Debug.Log(gameObject.transform.position);
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        gameObject.transform.position = pos;
+        Debug.Log(gameObject.transform.position);
+        gameObject.SetActive(false);
     }
 }

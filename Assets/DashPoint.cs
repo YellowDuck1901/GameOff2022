@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DashPoint : MonoBehaviour
 {
-    public PlayerMovement Player;
+    PlayerMovement Player;
 
     SpriteRenderer sr;
 
@@ -13,6 +13,7 @@ public class DashPoint : MonoBehaviour
         Player = GameObject.Find("Player").GetComponent<PlayerMovement>();
 
         sr = Player.GetComponent<SpriteRenderer>();
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -22,8 +23,10 @@ public class DashPoint : MonoBehaviour
             {
                 sr.color = Color.white;
                 Player._dashesLeft++;
+                gameObject.SetActive(false);
             }
-            Destroy(gameObject);
         }
     }
+
+
 }
