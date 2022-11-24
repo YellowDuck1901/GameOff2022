@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571035429169903903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: MovePlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571035430127804262}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WayPoint (2)
   m_TagString: WayPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -228,7 +228,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571035430153428798}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WayPoint
   m_TagString: WayPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 4571035430250883121}
   - component: {fileID: 4571035430250883127}
   - component: {fileID: 4571035430250883124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 3
   m_TagString: PlatformSpeed
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -329,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4571035430568499222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WayPoint (1)
   m_TagString: WayPoint
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
@@ -362,7 +362,7 @@ GameObject:
   - component: {fileID: 4571035430625257385}
   - component: {fileID: 4571035430625257390}
   - component: {fileID: 4571035430625257391}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: 6
   m_TagString: PlatformSpeed
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
@@ -430,7 +430,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7522749259377832303}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SpeedChange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
