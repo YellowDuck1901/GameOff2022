@@ -16,14 +16,28 @@ public class MovingPlatform : MonoBehaviour
     private GameObject player;
     private PlayerMovement PlayerMovement;
 
+    bool enableSetParrent;
+
     private void Start()
     {
         player = GameObject.Find("Player");
         PlayerMovement = player.GetComponent<PlayerMovement>();
+
     }
     private void Update()
     {
         transform.position = Vector3.MoveTowards(transform.position, wayPoints[target].position, moveSpeed * Time.fixedDeltaTime);
+
+        if (PlayerMovement.IsRun || PlayerMovement.IsDashing)
+        {
+            enableSetParrent = true;
+        }
+        else
+        {
+            enableSetParrent = false;
+        }
+
+        Debug.Log(PlayerMovement.IsRun);
     }
 
     private void FixedUpdate()
@@ -42,17 +56,29 @@ public class MovingPlatform : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (enableSetParrent)
+        {
+            setParent(collision.gameObject, null);
+        }
+        else
+
         if (collision.gameObject == player && (PlayerMovement._isGrounded || PlayerMovement.IsSliding))
         {
-            player.transform.parent = gameObject.transform;
+            setParent(collision.gameObject, gameObject);
         }
     }
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        if (enableSetParrent)
+        {
+            setParent(collision.gameObject, null);
+        }
+        else
+
         if (collision.gameObject == player && (PlayerMovement._isGrounded || PlayerMovement.IsSliding))
         {
-            player.transform.parent = gameObject.transform;
+            setParent(collision.gameObject, gameObject);
         }
     }
 
@@ -60,7 +86,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if (collision.gameObject == player)
         {
-            player.transform.parent = null;
+            setParent(collision.gameObject, null);
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -71,6 +97,16 @@ public class MovingPlatform : MonoBehaviour
             moveSpeed = Int32.Parse(collision.gameObject.name);
         }
 
+    }
+
+
+    public void setParent(GameObject children, GameObject parrent)
+    {
+        if(parrent != null)
+        {
+            children.transform.parent = parrent.transform;
+
+        }else children.transform.parent = null;
     }
     void OnDrawGizmosSelected()
     {
