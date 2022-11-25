@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Jump_3
   m_EditorClassIdentifier: 
   _selectedFunction: 0
-  Movement: 3
+  Movement: 5
   NumberMovement: 3
   LimitTime: 0
   isDisable: 0
