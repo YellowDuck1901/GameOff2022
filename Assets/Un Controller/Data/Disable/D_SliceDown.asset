@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: D_SliceDown
   m_EditorClassIdentifier: 
   _selectedFunction: 3
-  Movement: 7
+  Movement: 9
   NumberMovement: 0
   LimitTime: 0
   isDisable: 1
