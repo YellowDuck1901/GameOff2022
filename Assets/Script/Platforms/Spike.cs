@@ -14,7 +14,6 @@ public class Spike : MonoBehaviour
         {
             StatusPlayer sp = collision.gameObject.GetComponent<StatusPlayer>();
             // reset penaty
-            PenatlyManager.Penatly = false; 
             sp.IsHit = true;
         }
     }
