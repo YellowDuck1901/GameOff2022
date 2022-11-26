@@ -16546,6 +16546,10 @@ PrefabInstance:
       value: LoadLevel
       objectReference: {fileID: 0}
     - target: {fileID: 6076862141084297078, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
+      propertyPath: NextScene
+      value: Level 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6076862141084297078, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
       propertyPath: NextSence
       value: LevelTest4
       objectReference: {fileID: 0}

@@ -114,8 +114,9 @@ public class StatusPlayer : MonoBehaviour
             Mechanic.resetDisableMovement();
             IsHit = false;
             isDead = true;
+            PenatlyManager.Penatly = false;
         }
 
-       
+
     }
 }
