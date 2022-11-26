@@ -17016,10 +17016,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   KnotLevel: 
   inkJSON: {fileID: 4900000, guid: 2d3062dda1227054ca10fc80eac83fba, type: 3}
-  UnControllerFunctionDefault:
-  - {fileID: 0}
+  UnControllerFunctionDefault: []
   IsPentlyThisLevel: 0
-  UnControllerFunctionPenalty: []
+  UnControllerFunctionPenalty:
+  - {fileID: 11400000, guid: 81d0ecfa7eb51b241b142d79cda8520a, type: 2}
   loadScene: {fileID: 493172928}
 --- !u!1 &1228376857
 GameObject:
