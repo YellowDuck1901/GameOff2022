@@ -276,11 +276,10 @@ MonoBehaviour:
   _isDashing: 0
   _isRunning: 0
   _isWallHang: 0
-  _isGoLeft: 0
   dust: {fileID: 299025741836568189}
   dashEffect: {fileID: 299025741569241209}
   _groundCheckPoint: {fileID: 299025741749643461}
-  _groundCheckSize: {x: 0.46, y: 0.035}
+  _groundCheckSize: {x: 0.52, y: 0.09}
   _frontWallCheckPoint: {fileID: 299025741393725778}
   _backWallCheckPoint: {fileID: 299025742013733007}
   _wallCheckSize: {x: 0.12, y: 0.79}
@@ -353,7 +352,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299025741749643460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.018, y: -0.873, z: 0}
+  m_LocalPosition: {x: -0.006, y: -0.873, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

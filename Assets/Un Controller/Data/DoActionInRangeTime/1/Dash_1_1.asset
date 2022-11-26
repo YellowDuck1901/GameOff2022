@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dash_1_1
   m_EditorClassIdentifier: 
   _selectedFunction: 2
-  Movement: 2
+  Movement: 4
   NumberMovement: 1
   LimitTime: 1
   isDisable: 0

@@ -36,8 +36,6 @@ public class MovingPlatform : MonoBehaviour
         {
             enableSetParrent = false;
         }
-
-        Debug.Log(PlayerMovement.IsRun);
     }
 
     private void FixedUpdate()
@@ -104,6 +102,7 @@ public class MovingPlatform : MonoBehaviour
     {
         if(parrent != null)
         {
+            if(children.transform.parent == null)
             children.transform.parent = parrent.transform;
 
         }else children.transform.parent = null;

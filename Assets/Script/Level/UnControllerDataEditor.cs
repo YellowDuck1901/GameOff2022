@@ -63,6 +63,9 @@ public class UnControllerDataEditor : Editor
                 case UnControllerData.FunctionOption.setDisableMovement:
                     EditorGUILayout.PropertyField(isDisable);
                     break;
+                case UnControllerData.FunctionOption.limitAndDisableNumberMovement:
+                    EditorGUILayout.PropertyField(NumberMovement);
+                    break;
             }
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
