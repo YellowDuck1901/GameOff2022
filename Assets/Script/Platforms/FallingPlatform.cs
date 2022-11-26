@@ -27,14 +27,11 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator Fall()
     {
         Vector3 pos = originPostion.position;
-        Debug.Log("Origin"+ pos);
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic;
         yield return new WaitForSeconds(0.5f);
-        Debug.Log(gameObject.transform.position);
         rb.bodyType = RigidbodyType2D.Kinematic;
         gameObject.transform.position = pos;
-        Debug.Log(gameObject.transform.position);
         gameObject.SetActive(false);
     }
 }

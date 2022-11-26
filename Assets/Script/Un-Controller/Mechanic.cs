@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.Android;
 using Debug = UnityEngine.Debug;
 
 public class Mechanic : MonoBehaviour
@@ -24,9 +25,12 @@ public class Mechanic : MonoBehaviour
     }
 
     List<KeyCode> listKey = new List<KeyCode>() { KeyCode.A,KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow, KeyCode.C,KeyCode.X,KeyCode.Z,KeyCode.Space};
-    bool isLongPress_Jump, isLongPress_slide, isLongPress_Left, isLongPress_Right, isLongPress_Dash;
+    static bool isLongPress_Jump, isLongPress_slide, isLongPress_Left, isLongPress_Right, isLongPress_Dash;
     public static int CountMoveLeft, CountMoveRight, CountDash,
         CountJump, CountWallJump, Countslide, CountslideUp, CountslideDown;
+    bool deadInRangeTime;
+    bool deadLitmitAciton;
+
     public int GetCountMovement(Movements moveType)
     {
         int count = 0;
@@ -142,18 +146,27 @@ public class Mechanic : MonoBehaviour
         switch (moveType)
         {
             case Movements.MoveLeft:
+                Debug.Log("MoveLeft");
+
                 return isLongPress_Left;
 
             case Movements.MoveRight:
+                Debug.Log("MoveRight");
+
                 return isLongPress_Right;
 
             case Movements.Dash:
+                Debug.Log("Dash");
+
                 return isLongPress_Dash;
 
             case Movements.Jump:
+                Debug.Log("Jump " + isLongPress_Jump);
                 return isLongPress_Jump;
 
             case Movements.Slide:
+                Debug.Log("Slide");
+
                 return isLongPress_slide;
         }
         return false;
@@ -245,6 +258,13 @@ public class Mechanic : MonoBehaviour
         int Oddcount = GetCountMovement(moveType);
         while (true)
         {
+            if (StatusPlayer.playerInstance.IsHit)
+            {
+                SetCountMovement(moveType, 0);
+                Oddcount = 0;
+                break;
+            }
+
             if (GetCountMovement(moveType) - Oddcount >= limitNumber)
             {
                 Debug.Log("Penalty " + moveType);
@@ -252,15 +272,40 @@ public class Mechanic : MonoBehaviour
 
                 break;
             }
-            yield return new WaitForEndOfFrame();
+            yield return null;
+        }
+    }
+
+    public IEnumerator limitAndDisableNumberMovement(Movements moveType, int limitNumber)
+    {
+        Debug.Log("limitAndDisableNumberMovement");
+        int Oddcount = GetCountMovement(moveType);
+        while (true)
+        {
+            if (StatusPlayer.playerInstance.IsHit)
+            {
+                SetCountMovement(moveType, 0);
+                Oddcount = 0;
+                break;
+            }
+
+            if (GetCountMovement(moveType) - Oddcount >= limitNumber)
+            {
+                setDisableMovement(moveType, true);
+                Debug.Log("Penalty " + moveType);
+                PenatlyManager.Penatly = true;
+
+                break;
+            }
+            yield return null;
         }
     }
 
     public IEnumerator limitTimePressMovement(Movements moveType, float limitNumber)
     {
-      
         while (true)
         {
+
             if (GetBoolLong_Press(moveType))
             {
                 int timer = 0;
@@ -269,7 +314,6 @@ public class Mechanic : MonoBehaviour
                     if (GetBoolLong_Press(moveType))
                     {
                         timer++;
-                       
                         yield return new WaitForSeconds(1);
                     }
                     else break;
@@ -284,20 +328,28 @@ public class Mechanic : MonoBehaviour
                     break;
                 }
             }
-            yield return new WaitForEndOfFrame();
+            yield return null;
+
+
         }
     }
 
     public IEnumerator doActionInTimeRange(Movements moveType, int numberMovement, float limitTime)
     {
-        yield return new WaitForSeconds(limitTime);
-        int counter = GetCountMovement(moveType);
         SetCountMovement(moveType, 0);
+        yield return new WaitForSeconds(limitTime);
+
+
+        if (deadInRangeTime)
+        {
+            deadInRangeTime = false;
+            yield return null;
+        }
+        int counter = GetCountMovement(moveType);
         if (counter >= numberMovement)
         {
             Debug.Log("Penalty " + moveType);
             PenatlyManager.Penatly = true;
-
         }
         else 
         {
@@ -307,7 +359,6 @@ public class Mechanic : MonoBehaviour
     
     public void setDisableMovement(Movements moveType,bool value)
     {
-        Debug.Log("Penalty " + moveType + value);
         PenatlyManager.Penatly = true;
         switch (moveType)
         {
@@ -341,7 +392,7 @@ public class Mechanic : MonoBehaviour
         }
     }
 
-    public void resetDisableMovement()
+    public static void resetDisableMovement()
     {
         PlayerMovement._disableLeft = false;
         PlayerMovement._disableRight = false;
@@ -353,18 +404,28 @@ public class Mechanic : MonoBehaviour
     }
 
     private void Update()
-    {   
+    {
         for (int i = 0; i < listKey.Count; i++)
         {
             if (Input.GetKeyDown(listKey[i]))
             {
-                SetBoolLong_Press( listKey[i], true);
+                SetBoolLong_Press(listKey[i], true);
             }
 
             if (Input.GetKeyUp(listKey[i]))
             {
                 SetBoolLong_Press(listKey[i], false);
             }
+
+
+            if (StatusPlayer.playerInstance.IsHit)
+            {
+                deadInRangeTime = true;
+
+            }
         }
+
     }
+
+   
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ecbcb77b5c3ad349b82dea4c0099ca4, type: 3}
-  m_Name: SliceUp_1_1
+  m_Name: Jump_3
   m_EditorClassIdentifier: 
-  _selectedFunction: 2
-  Movement: 6
-  NumberMovement: 1
-  LimitTime: 1
+  _selectedFunction: 4
+  Movement: 5
+  NumberMovement: 3
+  LimitTime: 0
   isDisable: 0
   triggerFunction: 0

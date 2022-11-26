@@ -36,8 +36,6 @@ public class MovingPlatform : MonoBehaviour
         {
             enableSetParrent = false;
         }
-
-        Debug.Log(PlayerMovement.IsRun);
     }
 
     private void FixedUpdate()

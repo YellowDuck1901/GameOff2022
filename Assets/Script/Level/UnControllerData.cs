@@ -12,7 +12,8 @@ public class UnControllerData : ScriptableObject
         limitNumberMovement,
         limitTimePressMovement,
         doActionInTimeRange,
-        setDisableMovement
+        setDisableMovement,
+        limitAndDisableNumberMovement
     };
 
     [Header("Function Un-Controller")]
@@ -36,25 +37,4 @@ public class UnControllerData : ScriptableObject
     public bool triggerFunction;
 
     private Mechanic mechanic = new Mechanic();
-    //private void OnValidate()
-    //{
-    //    if (triggerFunction)
-    //    {
-    //        switch (_selectedFunction)
-    //        {
-    //            case UnControllerData.FunctionOption.limitNumberMovement:
-    //                StartCoroutine(mechanic.limitNumberMovement(Movement,NumberMovement));
-    //                break;
-    //            case UnControllerData.FunctionOption.limitTimePressMovement:
-    //                StartCoroutine(mechanic.limitTimePressMovement(Movement, LimitTime));
-    //                break;
-    //            case UnControllerData.FunctionOption.doActionInTimeRange:
-    //                StartCoroutine(mechanic.doActionInTimeRange(Movement, NumberMovement, LimitTime));
-    //                break;
-    //            case UnControllerData.FunctionOption.setDisableMovement:
-    //                mechanic.setDisableMovement(Movement,isDisable);
-    //                break;
-    //        }
-    //    }
-    //}
 }

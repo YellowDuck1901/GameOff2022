@@ -50,6 +50,11 @@ public class LevelData : MonoBehaviour
 
     private void Update()
     {
+        if (StatusPlayer.playerInstance.IsDead)
+        {
+            triggerDefault = false;
+        }
+
         if (!triggerDefault && !DialogueManager.dialogueIsPlaying )
         {
             triggerDefault = true;
@@ -68,6 +73,9 @@ public class LevelData : MonoBehaviour
                         break;
                     case UnControllerData.FunctionOption.setDisableMovement:
                         mechanic.setDisableMovement(controller.Movement, controller.isDisable);
+                        break;
+                    case UnControllerData.FunctionOption.limitAndDisableNumberMovement:
+                        StartCoroutine(mechanic.limitAndDisableNumberMovement(controller.Movement, controller.NumberMovement));
                         break;
                 }
             }
@@ -96,6 +104,9 @@ public class LevelData : MonoBehaviour
                         break;
                     case UnControllerData.FunctionOption.setDisableMovement:
                         mechanic.setDisableMovement(controller.Movement, controller.isDisable);
+                        break;
+                    case UnControllerData.FunctionOption.limitAndDisableNumberMovement:
+                        mechanic.limitAndDisableNumberMovement(controller.Movement, controller.NumberMovement);
                         break;
                 }
             }

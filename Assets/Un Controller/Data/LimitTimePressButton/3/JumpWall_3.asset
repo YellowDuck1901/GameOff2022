@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JumpWall_3
   m_EditorClassIdentifier: 
   _selectedFunction: 1
-  Movement: 4
+  Movement: 6
   NumberMovement: 3
   LimitTime: 3
   isDisable: 0
