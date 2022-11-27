@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -6,8 +7,7 @@ public class PlayerMovement : MonoBehaviour
     //Scriptable object which holds all the player's movement parameters. If you don't want to use it
     //just paste in all the parameters, though you will need to manuly change all references in this script
     public PlayerData Data;
-
-
+    public PlayerSound _PlayerSound;
     public static bool _disableAllMovement, _disableJump, _disableLeft, _disableRight, _disableslide, _disableslideUp, _disableslideDown, _disableDash, _disableFaceLeft, _disableFaceRight;
 
     [SerializeField] private Animator _anim;
@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool _isWallHang;
     public ParticleSystem dust;
     public DashEffect dashEffect;
-
 
     #endregion
 
@@ -202,11 +201,22 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-                _isGrounded = true;
+                if (!_isGrounded)
+                {
+                    _isGrounded = true;
+                    _anim.SetBool("Grounded", true);
+                    _PlayerSound.playSoundLanding();
+                }
+           
             }
             else
             {
-                _isGrounded = false;
+                if (_isGrounded)
+                {
+                    _anim.SetBool("Grounded", false);
+                    _isGrounded = false;
+                } 
+                
             }
 
             if (_isGrounded)
@@ -323,7 +333,6 @@ public class PlayerMovement : MonoBehaviour
             IsJumping = false;
             IsWallJumping = false;
             _isJumpCut = false;
-
             StartCoroutine(nameof(StartDash), _lastDashDir);
         }
         #endregion
@@ -565,6 +574,7 @@ public class PlayerMovement : MonoBehaviour
         //The default mode will apply are force instantly ignoring masss
         RB.AddForce(force, ForceMode2D.Impulse);
         #endregion
+        _PlayerSound.playSoundJump();
         Debug.Log("Wall jump");
     }
     #endregion
@@ -573,10 +583,12 @@ public class PlayerMovement : MonoBehaviour
     //Dash Coroutine
     private IEnumerator StartDash(Vector2 dir)
     {
+        _PlayerSound.playSoundDash();
+
         sr.color = new Color(0.3f, 0.8f, 1f, 1f);
 
         //Overall this method of dashing aims to mimic Celeste, if you're looking for
-        // a more physics-based approach try a method similar to that used in the jump
+        // a more physics-based approach try a metho    d similar to that used in the jump
 
         LastOnGroundTime = 0;
         LastPressedDashTime = 0;
@@ -643,8 +655,15 @@ public class PlayerMovement : MonoBehaviour
 
         //set velocity y to 0.
         if (_moveInput.y > 0 && !_disableAllMovement && !_disableslideUp)
+        {
             RB.AddForce(movement * Vector2.up);
-        else if (_moveInput.y < 0 && !_disableAllMovement && !_disableslideDown) RB.AddForce(movement * Vector2.down);
+            
+        }
+        else if (_moveInput.y < 0 && !_disableAllMovement && !_disableslideDown)
+        {
+            RB.AddForce(movement * Vector2.down);
+            
+        }
         else if (RB.velocity.y != 0 && !_disableAllMovement && !_disableslide) RB.velocity = new Vector2(RB.velocity.x, 0f);
     }
     #endregion
@@ -775,6 +794,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     _anim.SetBool("Jumping", true);
                     CreateDust();
+
                 }
                 else
                 {
@@ -790,6 +810,7 @@ public class PlayerMovement : MonoBehaviour
             if (RB.velocity.y < 0 && !IsDashing && !_isWallHang)
             {
                 _anim.SetBool("Falling", true);
+
             }
             if (_isGrounded || IsDashing || _isWallHang)
             {
@@ -804,11 +825,13 @@ public class PlayerMovement : MonoBehaviour
                     if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
                     {
                         _anim.SetBool("Jumping", true);
+
                     }
                     else
                     {
                         _isDashing = true;
                         _anim.SetBool("Dashing", true);
+
 
                     }
                 }
@@ -839,5 +862,7 @@ public class PlayerMovement : MonoBehaviour
             _anim.Play("Idle");
         }
     }
+
+    
 }
 

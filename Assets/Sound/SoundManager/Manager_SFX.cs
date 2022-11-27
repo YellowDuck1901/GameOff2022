@@ -9,6 +9,7 @@ public class Manager_SFX : MonoBehaviour
     [Header("Movemoment")]
     public AudioClip Run;
     public AudioClip Jump;
+    public AudioClip Landing;
     public AudioClip Dash;
     public AudioClip Slice;
     public AudioClip Dead;
@@ -16,7 +17,7 @@ public class Manager_SFX : MonoBehaviour
 
     [Header("Platform")]
     public AudioClip Move;
-    public AudioClip Collision;
+    public AudioClip Falling;
    
 
     [Header("Orther")]
@@ -35,9 +36,15 @@ public class Manager_SFX : MonoBehaviour
         pitchDefault_SFX = audio.pitch;
         priorityDefault_SFX = audio.priority;
         instance = this;
+
+        Debug.Log("volumeDefault_SFX " + volumeDefault_SFX);
+        Debug.Log("pitchDefault_SFX " + pitchDefault_SFX);
+        Debug.Log("priorityDefault_SFX " + priorityDefault_SFX);
+
     }
     public static void PlaySound_SFX(soundsGame currentSound)
     {
+        resetSettingSFX();
         switch (currentSound)
         {
             case soundsGame.Run:
@@ -48,6 +55,11 @@ public class Manager_SFX : MonoBehaviour
             case soundsGame.Jump:
                 {
                     instance.GetComponent<AudioSource>().PlayOneShot(instance.Jump);
+                }
+                break;
+            case soundsGame.Landing:
+                {
+                    instance.GetComponent<AudioSource>().PlayOneShot(instance.Landing);
                 }
                 break;
             case soundsGame.Dash:
@@ -66,6 +78,17 @@ public class Manager_SFX : MonoBehaviour
                     instance.GetComponent<AudioSource>().PlayOneShot(instance.Dead);
                 }
                 break;
+            case soundsGame.Collect:
+                {
+                    instance.GetComponent<AudioSource>().PlayOneShot(instance.Collect);
+                }
+                break;
+
+            case soundsGame.Falling:
+                {
+                    instance.GetComponent<AudioSource>().PlayOneShot(instance.Falling);
+                }
+                break;
 
         }
     }
@@ -78,52 +101,62 @@ public class Manager_SFX : MonoBehaviour
         audioSource.pitch = pitch;
         switch (currentSound)
         {
-            //case soundsGame.speakLeftCharacter:
-            //    {
-            //        audioSource.clip = instance.speakLeftCharacter;
-            //        audioSource.Play();
-            //        resetSettingSFX();
-            //    }
-            //    break;
             case soundsGame.Run:
                 {
                     audioSource.clip = instance.Run;
                     audioSource.Play();
-                    resetSettingSFX();
+                    //resetSettingSFX();
                 }
                 break;
             case soundsGame.Jump:
                 {
                     audioSource.clip = instance.Jump;
                     audioSource.Play();
-                    resetSettingSFX();
+                    //resetSettingSFX();
+                }
+                break;
+            case soundsGame.Landing:
+                {
+                    audioSource.clip = instance.Landing;
+                    audioSource.Play();
                 }
                 break;
             case soundsGame.Dash:
                 {
-                    audioSource.clip = instance.Run;
+                    audioSource.clip = instance.Dash;
                     audioSource.Play();
-                    resetSettingSFX();
+                    //resetSettingSFX();
                 }
                 break;
 
             case soundsGame.Slice:
                 {
-                    audioSource.clip = instance.Run;
+                    audioSource.clip = instance.Slice;
                     audioSource.Play();
-                    resetSettingSFX();
+                    //resetSettingSFX();
                 }
                 break;
             case soundsGame.Dead:
                 {
-                    audioSource.clip = instance.Run;
+                    audioSource.clip = instance.Dead;
                     audioSource.Play();
-                    resetSettingSFX();
+                    //resetSettingSFX();
+                }
+                break;
+            case soundsGame.Collect:
+                {
+                    audioSource.clip = instance.Dead;
+                    audioSource.Play();
+                }
+                break;
+            case soundsGame.Falling:
+                {
+                    audioSource.clip = instance.Falling;
+                    audioSource.Play();
                 }
                 break;
 
         }
-
     }
 
     public static void resetSettingSFX()

@@ -114,6 +114,8 @@ GameObject:
   - component: {fileID: 299025741569241210}
   - component: {fileID: 299025741569241211}
   - component: {fileID: 299025741569241209}
+  - component: {fileID: 1961019524315694836}
+  - component: {fileID: 703315642921530112}
   m_Layer: 6
   m_Name: Player 2
   m_TagString: Player
@@ -270,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 11400000, guid: 620d88e9ed8c0994d972fe9e54538d1a, type: 2}
+  _PlayerSound: {fileID: 1961019524315694836}
   _anim: {fileID: 299025741569241208}
   _dashesLeft: 0
   _isGrounded: 0
@@ -313,6 +316,8 @@ MonoBehaviour:
   isDead: 0
   isImmortal: 0
   isCutSence: 0
+  isHit: 0
+  _PlayerSound: {fileID: 1961019524315694836}
 --- !u!114 &299025741569241209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +333,26 @@ MonoBehaviour:
   ghostDelay: 0.05
   ghost: {fileID: 7185584979358059169, guid: 7d19fc7e91e7c2649b131540efcd2d4f, type: 3}
   makeGhost: 0
+--- !u!114 &1961019524315694836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299025741569241200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81459d979694a8747a28f02010faf0fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!81 &703315642921530112
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 299025741569241200}
+  m_Enabled: 1
 --- !u!1 &299025741749643460
 GameObject:
   m_ObjectHideFlags: 0

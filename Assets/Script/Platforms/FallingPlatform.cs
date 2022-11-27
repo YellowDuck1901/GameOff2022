@@ -12,6 +12,8 @@ public class FallingPlatform : MonoBehaviour
     [SerializeField] private Rigidbody2D rb;
     private Transform originPostion;
 
+    private bool isPlaySound;
+
     private void Start()
     {
         originPostion = gameObject.transform;
@@ -27,11 +29,23 @@ public class FallingPlatform : MonoBehaviour
     private IEnumerator Fall()
     {
         Vector3 pos = originPostion.position;
+        if (!isPlaySound)
+        {
+            isPlaySound = true;
+            playSoundFalling();
+        }
         yield return new WaitForSeconds(fallDelay);
         rb.bodyType = RigidbodyType2D.Dynamic;
         yield return new WaitForSeconds(0.5f);
         rb.bodyType = RigidbodyType2D.Kinematic;
         gameObject.transform.position = pos;
         gameObject.SetActive(false);
+        isPlaySound = false;
+    }
+
+
+    public void playSoundFalling()
+    {
+        Manager_SFX.PlaySound_SFX(soundsGame.Falling);
     }
 }

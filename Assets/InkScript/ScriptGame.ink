@@ -33,8 +33,13 @@ Ah look out, it’s a trapppp
 Seriously, just avoid it. What is the worst that could happen?
 -> END
 
+=== Level_3 ===
+Those moving flatform make me feel so dizzy @@
+-> END
+
 === Level_4 ===
 I got a feeling like those game developers made this level harder, stay sharp oke?
+Oh and the fruit can help you dash one more time, just saying!
 -> END
 
 === Level_5 ===

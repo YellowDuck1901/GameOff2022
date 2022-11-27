@@ -11304,8 +11304,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d1bd6dbfce350941bc9c7a17d2b840a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KnotLevel: 
-  inkJSON: {fileID: 4900000, guid: 2d3062dda1227054ca10fc80eac83fba, type: 3}
+  KnotLevel: Level_1_1
+  inkJSON: {fileID: 4900000, guid: 980c4905e3065c34b92f52d2f642612d, type: 3}
   UnControllerFunctionDefault: []
   IsPentlyThisLevel: 0
   UnControllerFunctionPenalty: []
@@ -11822,6 +11822,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2471552653085722765, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2471552653726056736, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
       propertyPath: m_Name
       value: Manager
@@ -11870,6 +11874,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7927487164434380150, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
+      propertyPath: m_Pitch
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927487164434380150, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
+      propertyPath: m_Volume
+      value: 0.063
+      objectReference: {fileID: 0}
+    - target: {fileID: 7927487164434380151, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
+      propertyPath: Laning
+      value: 
+      objectReference: {fileID: 8300000, guid: b54ae782448f1864984525a623f81bc5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
 --- !u!1001 &6076862141666815368

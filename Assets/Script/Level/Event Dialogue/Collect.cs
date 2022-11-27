@@ -26,6 +26,7 @@ public class Collect : MonoBehaviour
     {
         if (collision.gameObject.tag.Equals("Player") && sr.enabled)
         {
+            Manager_SFX.PlaySound_SFX(soundsGame.Collect);
             isCollision = true;
         }
     }
@@ -38,4 +39,8 @@ public class Collect : MonoBehaviour
             isCollectDialogue = true;
         }
     }
+
+   
+
+    
 }   

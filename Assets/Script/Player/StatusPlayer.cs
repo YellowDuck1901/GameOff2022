@@ -14,6 +14,8 @@ public class StatusPlayer : MonoBehaviour
 
     private LoadScene LoadScene;
 
+    public PlayerSound _PlayerSound;
+
     private void Start()
     {
         LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
@@ -119,4 +121,6 @@ public class StatusPlayer : MonoBehaviour
 
 
     }
+
+    
 }

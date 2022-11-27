@@ -7,12 +7,14 @@ public enum soundsGame
 {
     Run,
     Jump,
+    Landing,
     Dash,
     Slice,
     Dead,
     Move,
     Collision,
     Collect,
+    Falling,
     backgroundG1,
     backgroundG2,
     backgroundG3

@@ -8,16 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 1
-    path: Assets/Scenes/GameLevel/Level 1.unity
-    guid: 40e7304a5c4ec3443ba34b1a39abdc0b
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/TempateLevel/LevelTest5.unity
     guid: 6eb2922eb26574b4c8102491a0975f4b
   - enabled: 1
     path: Assets/Scenes/TempateLevel/LevelTest4.unity
     guid: d6116c407f7b1c944b93f41c54286c33
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/GameLevel/Level 6.unity
-    guid: ba05e50f8b3f6fa4eb43da55ccff0030
+    path: Assets/Scenes/GameLevel/Level 8.unity
+    guid: ef66a44fad9b5b847ae78a500fbf4bc4
   m_configObjects: {}

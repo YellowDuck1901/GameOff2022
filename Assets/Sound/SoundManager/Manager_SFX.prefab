@@ -141,21 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c59906338fc5341bc5baefc6c73b41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speakLeftEnemy: {fileID: 8300000, guid: e12b7201b2565c24ba524fee3fd6c3de, type: 3}
-  speakRightEnemy: {fileID: 8300000, guid: 27dc831e7909e4f4ca8a8ba817fb1d70, type: 3}
-  speakRightCharacter: {fileID: 8300000, guid: 38e1cae6252350846a8a88a2d16f8696, type: 3}
-  speakLeftCharacter: {fileID: 8300000, guid: 0d3696aa66701a245aa80921f8cb8484, type: 3}
-  winG1: {fileID: 8300000, guid: 7bd23d77945a31d41bce959c3a7eecd2, type: 3}
-  loseG1: {fileID: 8300000, guid: c2b5a02fb06fdaa4a94faaa1f76d9688, type: 3}
-  fire: {fileID: 8300000, guid: aac0c53283cde744f82e8fdec667a12e, type: 3}
-  collisionBullet: {fileID: 8300000, guid: b5f99890b569567489a3eef6d5c5462b, type: 3}
-  apperSlime: {fileID: 8300000, guid: 88c0dcf63f6f54e44a68986bb3caf1ca, type: 3}
-  apperBat: {fileID: 8300000, guid: a930b0159eaa743469b0f454f27e21ab, type: 3}
-  apperGhoot: {fileID: 8300000, guid: 17d8b88f11cd9c04580971a90a1f3811, type: 3}
-  deadEnemy: {fileID: 8300000, guid: 7ed2bce14b691ca4bba92d473eae2f2c, type: 3}
-  winG2: {fileID: 8300000, guid: 37c97228b80fe804aae495eca7d37d82, type: 3}
-  loseG2: {fileID: 8300000, guid: 3971949a52b49044990c779089d1c10d, type: 3}
-  Fly: {fileID: 8300000, guid: bbb97125a279b2140ba5fa7e8ad2940f, type: 3}
-  Ground: {fileID: 8300000, guid: b395288b0257e0e46ad9530368eee833, type: 3}
-  winG3: {fileID: 8300000, guid: 11c1cb9fb8ef9d941be53c934a3e4dcb, type: 3}
-  loseG3: {fileID: 8300000, guid: c2b5a02fb06fdaa4a94faaa1f76d9688, type: 3}
+  Run: {fileID: 8300000, guid: 3c1333cfc78082647b6ece55a35e35e5, type: 3}
+  Jump: {fileID: 8300000, guid: cedf4cfe044a9a54d90978efdbf4574f, type: 3}
+  Landing: {fileID: 8300000, guid: b54ae782448f1864984525a623f81bc5, type: 3}
+  Dash: {fileID: 8300000, guid: ea059fbeea81b0546bcb5b434f6f9616, type: 3}
+  Slice: {fileID: 8300000, guid: 38ec90295bf9e29459cac3a90112924e, type: 3}
+  Dead: {fileID: 8300000, guid: 3d41cf3f5605e724495401d2169b5ade, type: 3}
+  Move: {fileID: 8300000, guid: a327616b347a78b408430e6ddf6fedb2, type: 3}
+  Falling: {fileID: 8300000, guid: 5c16726671e75804084e000dc2091ba9, type: 3}
+  Collect: {fileID: 8300000, guid: c493abb5f88c5d447a411faf64bd0a70, type: 3}
