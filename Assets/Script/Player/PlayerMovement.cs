@@ -66,6 +66,7 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isRunning;
     [HideInInspector] public bool _isWallHang;
+    [HideInInspector] public bool _isDead;
     public ParticleSystem dust;
     public DashEffect dashEffect;
 
@@ -746,6 +747,15 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationController()
     {
+        if (_isDead)
+        {
+            _anim.SetBool("Dead", true);
+        }
+        else
+        {
+            _anim.SetBool("Dead", false);
+        }
+
         if (!_disableAllMovement)
         {
             if (IsRun)
