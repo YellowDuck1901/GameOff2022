@@ -9,10 +9,15 @@ public class PenatlyManager : MonoBehaviour
 
     private void Update()
     {
-        if (StatusPlayer.playerInstance != null && StatusPlayer.playerInstance.IsHit)
+       /* if (StatusPlayer.playerInstance != null && StatusPlayer.playerInstance.IsHit)
         {
             Penatly = false;
-        }
+        }*/
 
+    }
+
+    private void FixedUpdate()
+    {
+        Debug.Log("anim" +Penatly);
     }
 }

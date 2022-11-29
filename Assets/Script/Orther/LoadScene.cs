@@ -11,12 +11,13 @@ public class LoadScene : MonoBehaviour
      public string NextScene;
 
     [SerializeField]
-    public float ColdDownTime;
+    public float ColdDownTime = 1;
 
     public Animator anim;
 
     private void Start()
     {
+        
     }
     public IEnumerator WithColdDown(string NextScene, float ColdDownTime)
     {
@@ -30,6 +31,10 @@ public class LoadScene : MonoBehaviour
 
     public void openSceneWithColdDown()
     {
+
+        if(PenatlyManager.Penatly)
+            PenatlyManager.Penatly = false;
+
         anim.SetTrigger("Start");
 
         StartCoroutine(WithColdDown(NextScene, ColdDownTime));

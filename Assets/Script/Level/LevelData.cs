@@ -41,11 +41,17 @@ public class LevelData : MonoBehaviour
 
     private void Start()
     {
-        if (IsPentlyThisLevel)
+        if (IsPentlyThisLevel && PenatlyManager.Penatly)
         {
+            Debug.Log("Penalty");
             DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel + strKnotPenatly);
         }
+        else
+        {
+            Debug.Log("Normal");
             DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel);
+
+        }
 
         if (!SceneManager.GetActiveScene().name.Equals("Menu"))
         {
@@ -113,7 +119,7 @@ public class LevelData : MonoBehaviour
                         mechanic.setDisableMovement(controller.Movement, controller.isDisable);
                         break;
                     case UnControllerData.FunctionOption.limitAndDisableNumberMovement:
-                        mechanic.limitAndDisableNumberMovement(controller.Movement, controller.NumberMovement);
+                        StartCoroutine(mechanic.limitAndDisableNumberMovement(controller.Movement, controller.NumberMovement)) ;
                         break;
                 }
             }

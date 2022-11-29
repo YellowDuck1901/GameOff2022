@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _selectedFunction: 4
   Movement: 5
-  NumberMovement: 5
+  NumberMovement: 4
   LimitTime: 0
   isDisable: 0
   triggerFunction: 0
