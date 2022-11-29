@@ -26,7 +26,7 @@ public class LoadScene : MonoBehaviour
         }
     }
 
-    public void openSceneWithColdDown(string NextScene, float ColdDownTime)
+    public void openSceneWithColdDown()
     {
         StartCoroutine(WithColdDown(NextScene, ColdDownTime));
     }

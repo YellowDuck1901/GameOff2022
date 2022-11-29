@@ -16998,16 +16998,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1558494827020851282, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1558494827020851282, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 8300000, guid: fe330c38a51b6c54e8163ab2e8768d6c, type: 3}
     - target: {fileID: 1558494827020851284, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2471552653085722765, guid: 608aadc4e5f19c84490570638e1c9ef9, type: 3}
       propertyPath: m_SizeDelta.y

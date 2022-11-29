@@ -15,9 +15,8 @@ public enum soundsGame
     Collision,
     Collect,
     Falling,
-    backgroundG1,
-    backgroundG2,
-    backgroundG3
+    Menu,
+    BackGround
 }
 public class Config
 {

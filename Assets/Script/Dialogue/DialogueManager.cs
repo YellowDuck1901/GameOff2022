@@ -49,8 +49,8 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-
-        if(instance != null)
+        dialogueIsPlaying = false;
+        if (instance != null)
         {
             Debug.LogWarning("find onother dialogue manager");
         }else  instance = this;
@@ -67,7 +67,7 @@ public class DialogueManager : MonoBehaviour
         Player = GameObject.Find("Player");
         canvasDialogue = GameObject.Find("DialogueCanvas");
         dialogueText = FindChildrenObject.GetChildWithName(canvasDialogue, "TextDialogue").GetComponent<TextMeshProUGUI>();
-        canvasDialogue.SetActive(false);
+        //canvasDialogue.SetActive(false);
     }
 
     // Update is called once per frame
@@ -86,6 +86,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EnterDialogueMode(TextAsset inkJSON)
     {
+        Debug.Log("enter");
         if (!dialogueIsPlaying)
         {
             #region Disable Movement
@@ -103,6 +104,7 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueIsPlaying)
         {
+            Debug.Log("Enter");
             #region Disable Movement
             PlayerMovement._disableAllMovement = true;
             #endregion

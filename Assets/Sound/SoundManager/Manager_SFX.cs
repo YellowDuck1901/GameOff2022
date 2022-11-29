@@ -36,11 +36,6 @@ public class Manager_SFX : MonoBehaviour
         pitchDefault_SFX = audio.pitch;
         priorityDefault_SFX = audio.priority;
         instance = this;
-
-        Debug.Log("volumeDefault_SFX " + volumeDefault_SFX);
-        Debug.Log("pitchDefault_SFX " + pitchDefault_SFX);
-        Debug.Log("priorityDefault_SFX " + priorityDefault_SFX);
-
     }
     public static void PlaySound_SFX(soundsGame currentSound)
     {

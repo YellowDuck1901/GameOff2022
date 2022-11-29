@@ -8,14 +8,11 @@ public class Manager_SBG : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [Header("Game1")]
-    public AudioClip backgroundG1;
+    [Header("Menu")]
+    public AudioClip Menu;
 
-    [Header("Game2")]
-    public AudioClip backgroundG2;
-
-    [Header("Game3")]
-    public AudioClip backgroundG3;
+    [Header("MusicBackGround")]
+    public AudioClip MusicBackGround;
 
     public static Manager_SBG instance;
 
@@ -37,24 +34,16 @@ public class Manager_SBG : MonoBehaviour
         switch (currentSound)
         {
 
-            case soundsGame.backgroundG1:
+            case soundsGame.Menu:
                 {
-                    audioSource.clip = instance.backgroundG1;
+                    audioSource.clip = instance.Menu;
                     audioSource.Play();
                 }
                 break;
 
-            case soundsGame.backgroundG2:
+            case soundsGame.BackGround:
                 {
-                    audioSource.clip = instance.backgroundG2;
-                    audioSource.loop = true;
-                    audioSource.Play();
-                }
-                break;
-
-            case soundsGame.backgroundG3:
-                {
-                    audioSource.clip = instance.backgroundG3;
+                    audioSource.clip = instance.MusicBackGround;
                     audioSource.loop = true;
                     audioSource.Play();
                 }
@@ -71,31 +60,24 @@ public class Manager_SBG : MonoBehaviour
         audioSource.priority = priority;
         switch (currentSound)
         {
-            case soundsGame.backgroundG1:
+            case soundsGame.Menu:
                 {
-                    audioSource.clip = instance.backgroundG1;
+                    audioSource.clip = instance.Menu;
                     audioSource.Play();
                     resetSettingSBG();
                 }
                 break;
 
-            case soundsGame.backgroundG2:
+            case soundsGame.BackGround:
                 {
-                    audioSource.clip = instance.backgroundG2;
+                    audioSource.clip = instance.MusicBackGround;
                     audioSource.loop = true;
                     audioSource.Play();
                     resetSettingSBG();
                 }
                 break;
 
-            case soundsGame.backgroundG3:
-                {
-                    audioSource.clip = instance.backgroundG3;
-                    audioSource.loop = true;
-                    audioSource.Play();
-                    resetSettingSBG();
-                }
-                break;
+          
         }
     }
 

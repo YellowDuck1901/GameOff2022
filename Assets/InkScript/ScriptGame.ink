@@ -16,6 +16,10 @@ Winner winner chicken dinner
 It’s about time
 -> END
 
+=== Menu ===
+Too Hot Too Handle 
+-> END
+
 === Level_1_1 ===
 Oh hey, I didn’t see you there
 Since you are my player, we have no choice but to help each other get through this pig hole of a game. 

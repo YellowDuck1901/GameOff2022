@@ -9,7 +9,7 @@ public class PenatlyManager : MonoBehaviour
 
     private void Update()
     {
-        if (StatusPlayer.playerInstance.IsHit)
+        if (StatusPlayer.playerInstance != null && StatusPlayer.playerInstance.IsHit)
         {
             Penatly = false;
         }

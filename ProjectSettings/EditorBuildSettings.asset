@@ -6,21 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/TempateLevel/LevelTest5.unity
-    guid: 6eb2922eb26574b4c8102491a0975f4b
-  - enabled: 1
-    path: Assets/Scenes/TempateLevel/LevelTest4.unity
-    guid: d6116c407f7b1c944b93f41c54286c33
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 1
     path: Assets/Scenes/GameLevel/Level 8.unity
     guid: ef66a44fad9b5b847ae78a500fbf4bc4
+  - enabled: 1
+    path: Assets/Prefab/Menu/Menu.unity
+    guid: e8c15342a37fd75429c5fd4f376356b6
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 1.unity
+    guid: 8f94158b4fd982549abef1c2d1b4d51e
+  - enabled: 1
+    path: Assets/Prefab/Menu/Menu 1.unity
+    guid: f8e6c3c096b4d7b46b9c06cd31a88310
+  - enabled: 1
+    path: Assets/Prefab/Menu/Test.unity
+    guid: 9c58abd2bbb5a5a43ac4c3b87ae60032
+  - enabled: 1
+    path: Assets/Scenes/GameLevel/Level 7.unity
+    guid: 96faa4612bb9ccb48b8e3764c017eabe
   m_configObjects: {}

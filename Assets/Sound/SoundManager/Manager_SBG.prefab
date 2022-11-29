@@ -47,7 +47,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -141,6 +141,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0da32f162c3b84d96200003c9a7ffa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backgroundG1: {fileID: 8300000, guid: 9e8b1c9012ddce548973cdc8559c8a51, type: 3}
-  backgroundG2: {fileID: 8300000, guid: c600fabf85211ff448ad7ec9f8078ee0, type: 3}
-  backgroundG3: {fileID: 8300000, guid: 55bbb9cf5972bc347b640593834e9f86, type: 3}
+  Menu: {fileID: 8300000, guid: b299bb0cfbd13e847b7c8f715a398291, type: 3}
+  MusicBackGround: {fileID: 8300000, guid: fe330c38a51b6c54e8163ab2e8768d6c, type: 3}

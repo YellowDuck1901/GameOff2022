@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelData : MonoBehaviour
 {
@@ -46,11 +47,17 @@ public class LevelData : MonoBehaviour
         }
             DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel);
 
+        if (!SceneManager.GetActiveScene().name.Equals("Menu"))
+        {
+            Manager_SBG.PlaySound(soundsGame.BackGround);
+        }
+
     }
 
     private void Update()
     {
-        if (StatusPlayer.playerInstance.IsDead)
+
+        if (StatusPlayer.playerInstance != null && StatusPlayer.playerInstance.IsDead)
         {
             triggerDefault = false;
         }
@@ -116,7 +123,7 @@ public class LevelData : MonoBehaviour
         if (PreventNextLevel.isNextLevel)
         {
             PreventNextLevel.isNextLevel = false;
-            loadScene.openSceneWithColdDown(loadScene.NextScene, loadScene.ColdDownTime);
+            loadScene.openSceneWithColdDown();
         }
 
         //prevent next level

@@ -106,7 +106,7 @@ public class StatusPlayer : MonoBehaviour
             isDead = false;
             if (LoadScene == null)
             {
-                LoadScene.openSceneWithColdDown(SceneManager.GetActiveScene().name, 0f);
+                LoadScene.openSceneWithColdDown();
             }
             FindStartPos();
         }
