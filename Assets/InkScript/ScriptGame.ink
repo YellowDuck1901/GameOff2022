@@ -73,6 +73,7 @@ Oh, the environment looking...weird?
 See I told you that level was totally normal.
 I wonder if it is me or if everything is a little bit too hot.
 THE FLOOR IS LAVA!!!!
+DON’T STOP JUMPING EVERY 3 SECOND
 -> END
 
 === Level_10 ===
@@ -94,13 +95,13 @@ I told you that cat is in danger, so go save it or I won’t go any further.
 -> END
 
 === Level_12 ===
-Can we slow down a bit? My foot is badly hurt after all that jump
-I don’t wanna dash anymore than 4 times this level, I really DON’T
+Look out, that insect is gonna sting
+Keep them away from me
 -> END
 
 === Level_13 ===
-Oh what the hack is that?
-RUN
+Can we slow down a bit? My foot is badly hurt after all that jump
+I don’t wanna dash anymore than 4 times this level, I really DON’T
 -> END
 
 === Level_15 ===
@@ -129,11 +130,17 @@ Aghhh, my stomach is HURT!!
 Can’t jump any more than 4 or I’m gonna puke
 -> END
 
-=== Level_18 ===
-Ah a bomb, run at full speed before everything turn to dust
+=== Level_19 ===
+My hand is numb again
+Don’t hang on those walls too long (more than 3 seconds) will ya?
 -> END
 
 === Level_20 ===
-You expect a level 20, don’t you?
+We are not so different, you and i have the same pace
+My hand is healed now, thanks.
+-> END
+
+=== Level_20_Penalty ===
+I can’t feel my hand
 -> END
 

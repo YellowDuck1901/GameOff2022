@@ -13,6 +13,8 @@ public class LoadScene : MonoBehaviour
     [SerializeField]
     public float ColdDownTime;
 
+    public Animator anim;
+
     private void Start()
     {
     }
@@ -28,6 +30,8 @@ public class LoadScene : MonoBehaviour
 
     public void openSceneWithColdDown()
     {
+        anim.SetTrigger("Start");
+
         StartCoroutine(WithColdDown(NextScene, ColdDownTime));
     }
 
