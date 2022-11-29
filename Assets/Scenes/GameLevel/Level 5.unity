@@ -9783,6 +9783,10 @@ PrefabInstance:
       value: LevelTest4
       objectReference: {fileID: 0}
     - target: {fileID: 6076862141084297078, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 1195681771}
+    - target: {fileID: 6076862141084297078, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
       propertyPath: ColdDownTime
       value: 1
       objectReference: {fileID: 0}
