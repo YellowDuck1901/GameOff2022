@@ -15,6 +15,8 @@ public class LoadScene : MonoBehaviour
 
     public Animator anim;
 
+    [SerializeField]
+    LevelData levelData;
     private void Start()
     {
         
@@ -32,8 +34,13 @@ public class LoadScene : MonoBehaviour
     public void openSceneWithColdDown()
     {
 
-        if(PenatlyManager.Penatly)
+        if (PenatlyManager.Penatly && levelData.IsPentlyThisLevel && NextScene.Equals(SceneManager.GetActiveScene()))
+        {
             PenatlyManager.Penatly = false;
+        }
+
+        LevelData.triggerPenalty = false;
+        Debug.Log("LevelData.triggerPenalty = false: " + LevelData.triggerPenalty);
 
         anim.SetTrigger("Start");
 

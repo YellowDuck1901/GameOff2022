@@ -104,10 +104,11 @@ public class StatusPlayer : MonoBehaviour
         if (isDead)
         {
             isDead = false;
-            if (LoadScene == null)
-            {
-                LoadScene.openSceneWithColdDown();
-            }
+            //if (LoadScene == null)
+            //{
+            //    LoadScene.openSceneWithColdDown();
+            //}
+            LevelData.triggerPenalty = false;
             FindStartPos();
         }
 
@@ -116,7 +117,6 @@ public class StatusPlayer : MonoBehaviour
             Mechanic.resetDisableMovement();
             IsHit = false;
             isDead = true;
-            PenatlyManager.Penatly = false;
         }
 
 

@@ -23,13 +23,13 @@ public class LevelData : MonoBehaviour
 
     [Space(10)]
     [Header("UnController Penalty")]
-    [SerializeField] bool  IsPentlyThisLevel;
+    public bool  IsPentlyThisLevel;
     [SerializeField] UnControllerData[] UnControllerFunctionPenalty;
 
     [SerializeField] LoadScene loadScene;
 
     private bool triggerDefault;
-    private bool triggerPenalty;
+    public static bool triggerPenalty;
 
     Mechanic mechanic = new Mechanic();
 
@@ -94,10 +94,14 @@ public class LevelData : MonoBehaviour
             }
         }
 
+        Debug.Log("IsPentlyThisLevel " + IsPentlyThisLevel);
+        Debug.Log("triggerPenalty " + triggerPenalty);
+        Debug.Log("PenatlyManager.Penatly " + PenatlyManager.Penatly);
+
+
         if (IsPentlyThisLevel  &&  !triggerPenalty && PenatlyManager.Penatly && !DialogueManager.dialogueIsPlaying) //this level have penatly
         {
             triggerPenalty = true;
-            PenatlyManager.Penatly = false;
 
             //dialogue penatly
             Debug.Log("trigger Penalty this level");
