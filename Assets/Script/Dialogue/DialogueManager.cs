@@ -30,6 +30,8 @@ public class DialogueManager : MonoBehaviour
     private AudioSource audioSource;
     [SerializeField]
     private AudioClip[] dialogueSoundClips;
+    [SerializeField, Range(0f, 1f)]
+    private float Volume = 1;
 
     [SerializeField, Range(1f, 6f)]
     private float frequencyLevel = 2;
@@ -64,6 +66,7 @@ public class DialogueManager : MonoBehaviour
     }
     void Start()
     {
+        audioSource.volume = Volume;
         Player = GameObject.Find("Player");
         canvasDialogue = GameObject.Find("DialogueCanvas");
         dialogueText = FindChildrenObject.GetChildWithName(canvasDialogue, "TextDialogue").GetComponent<TextMeshProUGUI>();
