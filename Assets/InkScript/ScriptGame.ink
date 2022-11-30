@@ -17,7 +17,7 @@ It’s about time
 -> END
 
 === Menu ===
-Too Hot Too Handle 
+Too Hot To Handle 
 -> END
 
 === Level_1_1 ===

@@ -1308,7 +1308,7 @@ PrefabInstance:
       propertyPath: m_text
       value: 'Too Hot
 
-        Too Handle'
+        To Handle'
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontSize
@@ -1324,15 +1324,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontColor.b
-      value: 0
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontColor.g
-      value: 0
+      value: 0.16078432
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontColor.r
-      value: 0
+      value: 0.7372549
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontSizeBase
@@ -1340,7 +1340,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991912, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_fontColor32.rgba
-      value: 4278190080
+      value: 4280887740
       objectReference: {fileID: 0}
     - target: {fileID: 513867222999991914, guid: b87753f52b90bec439cda5fd8da6e6cc, type: 3}
       propertyPath: m_Name
@@ -3506,6 +3506,7 @@ MonoBehaviour:
   NextScene: Menu 1
   ColdDownTime: 0
   anim: {fileID: 0}
+  levelData: {fileID: 0}
 --- !u!1001 &1210359048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4719,6 +4720,7 @@ MonoBehaviour:
   NextScene: Level 1
   ColdDownTime: 1
   anim: {fileID: 771994298}
+  levelData: {fileID: 0}
 --- !u!1001 &1729851249
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6565,6 +6567,10 @@ PrefabInstance:
     - target: {fileID: 8500320934944948035, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}
       propertyPath: m_Name
       value: LevelLoaded
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500320934944948035, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500320934944948044, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}
       propertyPath: m_RootOrder
