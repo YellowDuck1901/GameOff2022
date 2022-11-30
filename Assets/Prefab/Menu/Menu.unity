@@ -776,6 +776,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextScene: Level 7
   ColdDownTime: 0
+  anim: {fileID: 0}
+  levelData: {fileID: 0}
 --- !u!1 &478592296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1633,7 +1635,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 272, y: 140}
+  m_AnchoredPosition: {x: 351, y: 116}
   m_SizeDelta: {x: 1920, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1623810513
@@ -1670,7 +1672,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Too Hot Too Handle
+  m_text: 'Too Hot
+
+    To Handle'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 81a3f4daf66561f4e97d7ba3a9f69173, type: 2}
   m_sharedMaterial: {fileID: -8397551383856473806, guid: 81a3f4daf66561f4e97d7ba3a9f69173, type: 2}
@@ -1679,8 +1683,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4280887740
+  m_fontColor: {r: 0.735849, g: 0.16244212, b: 0.16244212, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1733,7 +1737,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 3.017517, y: -0.85375977, z: 549.5349, w: -0.30163574}
+  m_margin: {x: 3.017517, y: -0.85375977, z: 711.1532, w: -0.30163574}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2472,6 +2476,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   NextScene: Menu 1
   ColdDownTime: 0
+  anim: {fileID: 0}
+  levelData: {fileID: 0}
 --- !u!1 &2077816696
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,6 +2527,7 @@ MonoBehaviour:
   typingEffectSpeed: 0.15
   dialogueSoundClips:
   - {fileID: 8300000, guid: fc116a4dae393e2499405757f7e5e4c8, type: 3}
+  Volume: 1
   frequencyLevel: 1
   maxPitch: 5
   minPitch: 5
