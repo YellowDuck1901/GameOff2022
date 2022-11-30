@@ -35,8 +35,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.00012207031, y: -4.459564}
-  m_SizeDelta: {x: -0.00012207031, y: 65.22443}
+  m_AnchoredPosition: {x: -0.49310303, y: 0.66679955}
+  m_SizeDelta: {x: 22.4659, y: 37.6924}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &676553052309341345
 CanvasRenderer:
@@ -204,8 +204,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 322}
-  m_SizeDelta: {x: 1442.1101, y: 0}
+  m_AnchoredPosition: {x: -0.000002861, y: 113}
+  m_SizeDelta: {x: 609.6324, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8969982274823496954
 CanvasRenderer:
@@ -262,8 +262,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80
-  m_fontSizeBase: 80
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 3
+  m_characterSpacing: 2
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -298,7 +298,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 26.182373, y: -0.85375977, z: 38.24475, w: -0.30163574}
+  m_margin: {x: 10.426254, y: -7.03751, z: 11.339142, w: -10.607913}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -353,8 +353,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.65057373, y: -5.747299}
-  m_SizeDelta: {x: 103.8196, y: 103.6348}
+  m_AnchoredPosition: {x: -0.4382019, y: -0.73049927}
+  m_SizeDelta: {x: 37.607, y: 43.8547}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8969982274839625070
 CanvasRenderer:
@@ -558,7 +558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}

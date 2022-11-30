@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8680909462280552290}
   - component: {fileID: 8396210974335441835}
   - component: {fileID: 6237386612504328079}
+  - component: {fileID: 8527582260950309979}
   m_Layer: 5
   m_Name: Level
   m_TagString: Untagged
@@ -122,6 +123,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8527582260950309979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5108555807402015800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89cde4382bb237746b64663dd5b99655, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NextScene: 
+  ColdDownTime: 1
+  anim: {fileID: 0}
+  levelData: {fileID: 0}
 --- !u!1 &7739631898248196529
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +232,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 44.75
   m_fontSizeBase: 25
   m_fontWeight: 400
   m_enableAutoSizing: 1

@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.08250129, g: 1, b: 0, a: 0}
+  m_Color: {r: 0.08250129, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScene: 
-  ColdDownTime: 2
+  ColdDownTime: 1
   anim: {fileID: 0}
   levelData: {fileID: 0}
 --- !u!114 &2408107190059047731

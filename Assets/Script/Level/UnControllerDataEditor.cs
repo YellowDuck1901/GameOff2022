@@ -1,10 +1,13 @@
 using Ink.Runtime;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using static UnControllerData;
 using UnityEngine;
 using System.Security.Cryptography;
 using static Mechanic;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(UnControllerData))]
 public class UnControllerDataEditor : Editor
 {
@@ -74,3 +77,4 @@ public class UnControllerDataEditor : Editor
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

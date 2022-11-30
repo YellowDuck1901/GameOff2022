@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Android;
 using Debug = UnityEngine.Debug;
 
 public class Mechanic : MonoBehaviour

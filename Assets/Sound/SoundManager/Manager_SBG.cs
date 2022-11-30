@@ -25,59 +25,65 @@ public class Manager_SBG : MonoBehaviour
     {
         audio = gameObject.GetComponent<AudioSource>();
         instance = this;
+
+        if (!audio.isPlaying)
+            Manager_SBG.PlaySound(soundsGame.BackGround);
     }
     public static void PlaySound(soundsGame currentSound)
     {
-        var audioSource = instance.GetComponent<AudioSource>();
-        audioSource.loop = true;
+        if (!Manager_SBG.instance.audio.isPlaying) {
+            var audioSource = instance.GetComponent<AudioSource>();
+            audioSource.loop = true;
 
-        switch (currentSound)
-        {
+            switch (currentSound)
+            {
 
-            case soundsGame.Menu:
-                {
-                    audioSource.clip = instance.Menu;
-                    audioSource.Play();
-                }
-                break;
+                case soundsGame.Menu:
+                    {
+                        audioSource.clip = instance.Menu;
+                        audioSource.Play();
+                    }
+                    break;
 
-            case soundsGame.BackGround:
-                {
-                    audioSource.clip = instance.MusicBackGround;
-                    audioSource.loop = true;
-                    audioSource.Play();
-                }
-                break;
+                case soundsGame.BackGround:
+                    {
+                        audioSource.clip = instance.MusicBackGround;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
+                    break;
+            }
         }
     }
 
     public static void PlaySound(soundsGame currentSound, float volume, float pitch, int priority = 128)
     {
-        var audioSource = instance.GetComponent<AudioSource>();
-        audioSource.loop = true;
-        audioSource.volume = volume;
-        audioSource.pitch = pitch;
-        audioSource.priority = priority;
-        switch (currentSound)
+        if (!Manager_SBG.instance.audio.isPlaying)
         {
-            case soundsGame.Menu:
-                {
-                    audioSource.clip = instance.Menu;
-                    audioSource.Play();
-                    resetSettingSBG();
-                }
-                break;
+            var audioSource = instance.GetComponent<AudioSource>();
+            audioSource.loop = true;
+            audioSource.volume = volume;
+            audioSource.pitch = pitch;
+            audioSource.priority = priority;
+            switch (currentSound)
+            {
+                case soundsGame.Menu:
+                    {
+                        audioSource.clip = instance.Menu;
+                        audioSource.Play();
+                        resetSettingSBG();
+                    }
+                    break;
 
-            case soundsGame.BackGround:
-                {
-                    audioSource.clip = instance.MusicBackGround;
-                    audioSource.loop = true;
-                    audioSource.Play();
-                    resetSettingSBG();
-                }
-                break;
-
-          
+                case soundsGame.BackGround:
+                    {
+                        audioSource.clip = instance.MusicBackGround;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                        resetSettingSBG();
+                    }
+                    break;
+            }
         }
     }
 

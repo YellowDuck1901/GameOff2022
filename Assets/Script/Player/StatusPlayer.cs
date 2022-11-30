@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.PackageManager;
 using UnityEditor.TextCore.Text;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class StatusPlayer : MonoBehaviour
 {
     [SerializeField]
-    private bool isDead, isImmortal, isCutSence, isHit;
+    private bool isDead, isImmortal, isCutSence, isHit, isPlayingDeadAnim; 
 
     public static StatusPlayer playerInstance;
 
@@ -16,9 +18,15 @@ public class StatusPlayer : MonoBehaviour
 
     public PlayerSound _PlayerSound;
 
+    private PlayerMovement playerMovement;
+
+    public Animator anim;
+
+
     private void Start()
     {
         LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>(); 
     }
     void Awake()
     {
@@ -101,20 +109,24 @@ public class StatusPlayer : MonoBehaviour
     {
         
 
-        if (isDead)
+        if (isDead && !isPlayingDeadAnim)
         {
+            Debug.Log("Dead");
             isDead = false;
+            isPlayingDeadAnim = true;
             //if (LoadScene == null)
             //{
             //    LoadScene.openSceneWithColdDown();
             //}
             LevelData.triggerPenalty = false;
-            FindStartPos();
+            StartCoroutine(DeadAnimation(1f));
+            
         }
 
-        if (IsHit)
+        if (IsHit && !isPlayingDeadAnim)
         {
             Mechanic.resetDisableMovement();
+            PlayerMovement._disableAllMovement = true;
             IsHit = false;
             isDead = true;
         }
@@ -122,5 +134,21 @@ public class StatusPlayer : MonoBehaviour
 
     }
 
-    
+    IEnumerator DeadAnimation(float delayTime)
+    {
+        playerMovement._isDead = true;
+
+        anim.SetTrigger("Start");
+        anim.SetTrigger("End");
+        yield return new WaitForSeconds(1f);
+        FindStartPos();
+        playerMovement._isDead = false;
+
+        isPlayingDeadAnim = false;
+        PlayerMovement._disableAllMovement = false;
+    }
+
+
+
+
 }
