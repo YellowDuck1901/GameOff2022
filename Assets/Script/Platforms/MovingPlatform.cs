@@ -26,7 +26,7 @@ public class MovingPlatform : MonoBehaviour
     }
     private void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, wayPoints[target].position, moveSpeed * Time.fixedDeltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, wayPoints[target].position, moveSpeed * Time.deltaTime);
 
         if (PlayerMovement.IsRun || PlayerMovement.IsDashing)
         {
