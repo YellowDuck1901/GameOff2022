@@ -107,7 +107,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueIsPlaying)
         {
-            Debug.Log("Enter");
             #region Disable Movement
             PlayerMovement._disableAllMovement = true;
             #endregion

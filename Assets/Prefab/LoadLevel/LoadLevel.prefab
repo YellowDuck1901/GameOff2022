@@ -147,8 +147,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89cde4382bb237746b64663dd5b99655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NextSence: LevelTest2
-  ColdDownTime: 2
+  NextScene: 
+  ColdDownTime: 1
+  anim: {fileID: 0}
+  levelData: {fileID: 0}
 --- !u!114 &2408107190059047731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,4 +164,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EventPrevent: []
-  player: {fileID: 0}

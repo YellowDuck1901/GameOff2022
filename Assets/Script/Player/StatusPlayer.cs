@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.PackageManager;
 using UnityEditor.TextCore.Text;
+#endif
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -16,9 +18,15 @@ public class StatusPlayer : MonoBehaviour
 
     public PlayerSound _PlayerSound;
 
+    private PlayerMovement playerMovement;
+
+    public Animator anim;
+
+
     private void Start()
     {
         LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
+        playerMovement = gameObject.GetComponent<PlayerMovement>(); 
     }
     void Awake()
     {
@@ -109,7 +117,8 @@ public class StatusPlayer : MonoBehaviour
             //    LoadScene.openSceneWithColdDown();
             //}
             LevelData.triggerPenalty = false;
-            FindStartPos();
+            StartCoroutine(DeadAnimation(1f));
+            
         }
 
         if (IsHit)
@@ -122,5 +131,21 @@ public class StatusPlayer : MonoBehaviour
 
     }
 
-    
+    IEnumerator DeadAnimation(float delayTime)
+    {
+        playerMovement._isDead = true;
+        anim.SetTrigger("Start");
+        anim.SetTrigger("End");
+        yield return new WaitForSeconds(1f);
+        playerMovement._isDead = false;
+        FindStartPos();
+
+
+
+
+    }
+
+
+
+
 }

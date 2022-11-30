@@ -15,16 +15,7 @@ public class CanvasPause : MonoBehaviour
     private string currentScene;
     void Awake()
     {
-        DontDestroyOnLoad(this);
-
-        if (canvasPause == null)
-        {
-            canvasPause = gameObject.GetComponent<CanvasPause>();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        canvasPause = gameObject.GetComponent<CanvasPause>();
     }
     private void OnLevelWasLoaded(int level)
     {
