@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
+using UnityEditor.Sequences;
+#endif
 using UnityEngine;
-
-
+using UnityEngine.SceneManagement;
 
 public class Manager_SBG : MonoBehaviour
 {
@@ -33,6 +35,16 @@ public class Manager_SBG : MonoBehaviour
 
         if (!audio.isPlaying)
             Manager_SBG.PlaySound(soundsGame.BackGround);
+
+       
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        if (SceneManager.GetActiveScene().name.Contains("Menu"))
+        {
+            Manager_SBG.stopPlay();
+        }
     }
     public static void PlaySound(soundsGame currentSound)
     {
