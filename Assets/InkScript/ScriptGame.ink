@@ -16,6 +16,18 @@ Winner winner chicken dinner
 It’s about time
 -> END
 
+=== Ending ===
+Oh, so this is the end.
+Thank you so much for playing our game.
+Do you enjoy our journey?
+If the answer is yes, consider vote for us to be the BEST game in this jam
+And also really appreciate two developers: TienLee and Phu for force me through so much hard stuff just for entertainment 
+One day, I will go out of this game and “have a little chat” with those two.
+That’s all, I hope we will meet in another project. 
+Farewell my friend.
+-> END
+
+
 === Menu ===
 Too Hot To Handle 
 -> END
@@ -24,8 +36,15 @@ Too Hot To Handle
 Oh hey, I didn’t see you there
 Since you are my player, we have no choice but to help each other get through this pig hole of a game. 
 Control me to get over this, I mean how hard can it be? Heh
-But remember, my body my choice, I won’t tolerate such behavior that goes against my will.
-For now, let’s move on with simple movement. 
+But remember, my body my choice and I won’t tolerate such behavior that goes against my will.
+For now, let’s move on with simple movement. <i><color=\#6A00FF>right and left arrow for movement.</color></i>
+-> END
+
+=== Level_1_1_Collect
+Jump by pressing <i><color=\#6A00FF>C</color></i>
+Whenever near a wall, <i><color=\#6A00FF>Z</color></i> is the key to climbing.
+And remember use <i><color=\#6A00FF>LShift</color></i> to perform a flashy dash
+Remember if you have to dash, dash with a style 
 -> END
 
 === Level_1_2 ===
@@ -42,12 +61,12 @@ Those moving flatform make me feel so dizzy @@
 -> END
 
 === Level_4 ===
-I got a feeling like those game developers made this level harder, stay sharp oke?
+I got a feeling that those game developers made this level harder, stay sharp oke?
 Oh and the fruit can help you dash one more time, just saying!
 -> END
 
 === Level_5 ===
-Agh feeling tired avoid all that trap, I don’t want to jump any more than 3 times
+Agh feeling tired avoid all that trap,  <i><color=\#6A00FF>I don’t want to jump any more than 3 times</color></i>
 -> END
 
 === Level_6 ===
@@ -56,34 +75,36 @@ Oh well, let the journey continue!
 -> END
 
 === Level_6_Penalty ===
-Ugh, I already told you I feel so TIRED. Won’t jump any more than 4 this time. 
+Ugh, I already told you I feel so TIRED. <i><color=\#6A00FF>Won’t jump any more than 4 this time.</color></i> 
 Don’t even dare to complain, it is YOUR DECISION remember?
 -> END
 
 === Level_7 ===
-Agh I feel invincible, I won’t hold back any longer!! CHARGE
+Agh I feel invincible, <i><color=\#6A00FF>I won’t hold back any longer!! CHARGE</color></i>
 -> END
 
 === Level_8 ===
-This level is normal, it really is.
-Oh, the environment looking...weird?
+This level is super duper hard.
+Remember, patience is the key to solve everything
+I believe in you
 -> END
 
 === Level_9 ===
-See I told you that level was totally normal.
-I wonder if it is me or if everything is a little bit too hot.
-THE FLOOR IS LAVA!!!!
-DON’T STOP JUMPING EVERY 3 SECOND
+Don’t jump anymore than two times
+Why? Because i like the number two
 -> END
 
 === Level_10 ===
-My hand is numb, I don’t want to hang on those rocky walls anymore.
+Well you don’t listen to me. But lucky for you, I’m in a good mood.
+Anyway, my hand is numb, <i><color=\#6A00FF>I don’t want to hang on those rocky walls anymore.</color></i>
 How to pass the level you ask? Well maybe jump and dash?
-It's not my job, you have to figure it out lol
+It's not my job, you have to figure it out lol.
 -> END
 
 === Level_11 ===
-Can you see that cat over there, poor little cat, we must save it!
+I can sense something above me
+<i><color=\#6A00FF>Oh that is a cat</color></i>, what does that cat doing in this dangerous place?
+<i><color=\#6A00FF>We have to save it!!</color></i>
 -> END
 
 === Level_11_Collect ===
@@ -91,11 +112,11 @@ Poor little cat, come here I will help you.
 -> END
 
 === Level_11_Prevent ===
-I told you that cat is in danger, so go save it or I won’t go any further.
+I told you there is a cat in danger, so go save it or I won’t go any further.
 -> END
 
 === Level_12 ===
-Look out, that insect is gonna sting
+Look out, that insect is scary
 Keep them away from me
 -> END
 

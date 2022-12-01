@@ -400,6 +400,8 @@ public class Mechanic : MonoBehaviour
         PlayerMovement._disableslide = false;
         PlayerMovement._disableslideDown = false;
         PlayerMovement._disableslideUp = false;
+        PlayerMovement._disableFaceLeft = false;
+        PlayerMovement._disableFaceRight = false;
     }
 
     private void Update()

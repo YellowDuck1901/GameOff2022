@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     private bool _dashRefilling;
     private Vector2 _lastDashDir;
     private bool _isDashAttacking;
+    public bool _isPlayingDeadAnim;
 
     // Input Slide: true when long-press key , false when un press
     private bool _isKeySlide;
@@ -548,8 +549,6 @@ public class PlayerMovement : MonoBehaviour
         Mechanic.CountJump++;
 
         #endregion
-        Debug.Log("Jump");
-
     }
 
     private void WallJump(int dir)
@@ -712,7 +711,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!_disableAllMovement && !_disableDash && !IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
         {
-            Debug.Log("dash");
             StartCoroutine(nameof(RefillDash), 1);
         }
 
@@ -747,13 +745,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void AnimationController()
     {
+       
         if (_isDead)
         {
-            _anim.SetBool("Dead", true);
-        }
-        else
-        {
-            _anim.SetBool("Dead", false);
+            if (!_isPlayingDeadAnim)
+            {
+                _isPlayingDeadAnim = true;
+                _anim.SetTrigger("Dead");
+                Manager_SFX.PlaySound_SFX(soundsGame.Dead,1f,1,128);
+            }
+            
         }
 
         if (!_disableAllMovement)
@@ -869,6 +870,8 @@ public class PlayerMovement : MonoBehaviour
             _anim.SetBool("Dashing", false);
             _anim.SetBool("Jumping", false);
             _anim.SetBool("Falling", false);
+
+            if(!_isDead)
             _anim.Play("Idle");
         }
     }

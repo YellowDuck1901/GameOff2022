@@ -93,19 +93,11 @@ public class LevelData : MonoBehaviour
                 }
             }
         }
-
-        Debug.Log("IsPentlyThisLevel " + IsPentlyThisLevel);
-        Debug.Log("triggerPenalty " + triggerPenalty);
-        Debug.Log("PenatlyManager.Penatly " + PenatlyManager.Penatly);
-
-
         if (IsPentlyThisLevel  &&  !triggerPenalty && PenatlyManager.Penatly && !DialogueManager.dialogueIsPlaying) //this level have penatly
         {
             triggerPenalty = true;
 
             //dialogue penatly
-            Debug.Log("trigger Penalty this level");
-        
             foreach (var controller in UnControllerFunctionPenalty)
             {
                 switch (controller._selectedFunction)

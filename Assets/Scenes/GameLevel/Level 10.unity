@@ -11576,6 +11576,10 @@ PrefabInstance:
       propertyPath: EventPrevent.Array.data[6]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6076862141084296840, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6076862141084296841, guid: fa8b6caca9f7e0e438174d517d00d176, type: 3}
       propertyPath: m_RootOrder
       value: 1

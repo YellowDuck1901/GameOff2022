@@ -30,7 +30,6 @@ public class StatusPlayer : MonoBehaviour
     }
     void Awake()
     {
-        DontDestroyOnLoad(this);
 
         if (playerInstance == null)
         {
@@ -96,6 +95,7 @@ public class StatusPlayer : MonoBehaviour
 
     public void OnLevelWasLoaded(int level)
     {
+        Mechanic.resetDisableMovement();
         LoadScene = GameObject.Find("LoadLevel").GetComponent<LoadScene>();
         FindStartPos();
     }
@@ -137,15 +137,26 @@ public class StatusPlayer : MonoBehaviour
     IEnumerator DeadAnimation(float delayTime)
     {
         playerMovement._isDead = true;
+        playerMovement.RB.constraints = RigidbodyConstraints2D.FreezeAll;
+
+
+        yield return new WaitForSeconds(0.2f);
 
         anim.SetTrigger("Start");
+        yield return new WaitForSeconds(0.6f);
         anim.SetTrigger("End");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.2f);
         FindStartPos();
         playerMovement._isDead = false;
+        playerMovement._isPlayingDeadAnim = false;
 
         isPlayingDeadAnim = false;
         PlayerMovement._disableAllMovement = false;
+
+        playerMovement.RB.constraints = RigidbodyConstraints2D.None;
+        playerMovement.RB.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+
     }
 
 
