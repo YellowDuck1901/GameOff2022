@@ -28,7 +28,7 @@ public class CanvasPause : MonoBehaviour
     }
     private void Update()
     {
-
+        Debug.Log(Time.timeScale);
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Debug.Log(currentScene);

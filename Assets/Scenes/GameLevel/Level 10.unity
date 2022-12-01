@@ -9997,6 +9997,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2753942708529949986, guid: f04918f0a914fd34bbd86389f42e2c87, type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 1701715644}
+    - target: {fileID: 2753942708529949986, guid: f04918f0a914fd34bbd86389f42e2c87, type: 3}
+      propertyPath: levelData
+      value: 
+      objectReference: {fileID: 1195681771}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f04918f0a914fd34bbd86389f42e2c87, type: 3}
 --- !u!1 &1195681768
@@ -11065,6 +11073,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8500320934944948044, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8500320935869529400, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8500320936662450013, guid: 92183fc25b9b4ed49b29de021041610c, type: 3}

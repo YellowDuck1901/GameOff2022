@@ -356,10 +356,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2753942707203405794}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2753942707116480832}
+        m_TargetAssemblyTypeName: CanvasPause, Assembly-CSharp
+        m_MethodName: Unpause
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -368,10 +368,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2753942707116480832}
-        m_TargetAssemblyTypeName: CanvasPause, Assembly-CSharp
-        m_MethodName: Unpause
-        m_Mode: 1
+      - m_Target: {fileID: 2753942707203405794}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -503,9 +503,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 2753942708529949986}
+        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
+        m_MethodName: openSceneWithColdDown
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -515,9 +515,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2753942708529949986}
-        m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: openSceneWithColdDown
+      - m_Target: {fileID: 2753942707116480832}
+        m_TargetAssemblyTypeName: CanvasPause, Assembly-CSharp
+        m_MethodName: Unpause
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -540,7 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   NextScene: Menu 1
-  ColdDownTime: 0
+  ColdDownTime: 1
   anim: {fileID: 0}
   levelData: {fileID: 0}
 --- !u!1 &2753942708799249096
@@ -957,6 +957,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2753942707203405797}
     m_Modifications:
+    - target: {fileID: 5191941897954987230, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191941897954987230, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: openSceneWithColdDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191941897954987230, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5191941897954987230, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -965,6 +989,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 2753942707116480832}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Unpause
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CanvasPause, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519719145994170332, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 5519719146123451668, guid: 36b87f43aab5d8a49b089fdee6033a35, type: 3}
       propertyPath: m_Name
       value: Panel

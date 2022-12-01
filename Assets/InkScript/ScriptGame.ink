@@ -33,7 +33,7 @@ Too Hot To Handle
 -> END
 
 === Level_1_1 ===
-Oh hey, I didn’t see you there
+Oh hey, I didn’t see you there, Ah press <color=\#6A00FF>C</color> to talk to me.
 Since you are my player, we have no choice but to help each other get through this pig hole of a game. 
 Control me to get over this, I mean how hard can it be? Heh
 But remember, my body my choice and I won’t tolerate such behavior that goes against my will.
