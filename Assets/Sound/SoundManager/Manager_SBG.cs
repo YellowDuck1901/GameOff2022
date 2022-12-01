@@ -14,6 +14,11 @@ public class Manager_SBG : MonoBehaviour
     [Header("MusicBackGround")]
     public AudioClip MusicBackGround;
 
+
+    [Header("Ending Music")]
+    public AudioClip EndingMusic;
+
+
     public static Manager_SBG instance;
 
     AudioSource audio;
@@ -52,6 +57,14 @@ public class Manager_SBG : MonoBehaviour
                         audioSource.Play();
                     }
                     break;
+
+                case soundsGame.EndingMusic:
+                    {
+                        audioSource.clip = instance.EndingMusic;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                    }
+                    break;
             }
         }
     }
@@ -78,6 +91,14 @@ public class Manager_SBG : MonoBehaviour
                 case soundsGame.BackGround:
                     {
                         audioSource.clip = instance.MusicBackGround;
+                        audioSource.loop = true;
+                        audioSource.Play();
+                        resetSettingSBG();
+                    }
+                    break;
+                case soundsGame.EndingMusic:
+                    {
+                        audioSource.clip = instance.EndingMusic;
                         audioSource.loop = true;
                         audioSource.Play();
                         resetSettingSBG();

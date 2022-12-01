@@ -21,7 +21,7 @@ Oh, so this is the end.
 Thank you so much for playing our game.
 Do you enjoy our journey?
 If the answer is yes, consider vote for us to be the BEST game in this jam
-And also really appreciate two developers: TienLee and Phu for force me through so much hard stuff just for entertainment 
+And also really appreciate two developers: <color=\#6A00FF>TienLee</color> and <color=\#6A00FF>Adan</color> for force me through so much hard stuff just for entertainment 
 One day, I will go out of this game and “have a little chat” with those two.
 That’s all, I hope we will meet in another project. 
 Farewell my friend.
@@ -37,13 +37,13 @@ Oh hey, I didn’t see you there
 Since you are my player, we have no choice but to help each other get through this pig hole of a game. 
 Control me to get over this, I mean how hard can it be? Heh
 But remember, my body my choice and I won’t tolerate such behavior that goes against my will.
-For now, let’s move on with simple movement. <i><color=\#6A00FF>right and left arrow for movement.</color></i>
+For now, let’s move on with simple movement. <color=\#6A00FF>right and left arrow for movement.</color>
 -> END
 
 === Level_1_1_Collect
-Jump by pressing <i><color=\#6A00FF>C</color></i>
-Whenever near a wall, <i><color=\#6A00FF>Z</color></i> is the key to climbing.
-And remember use <i><color=\#6A00FF>LShift</color></i> to perform a flashy dash
+Jump by pressing <color=\#6A00FF>C</color>
+Whenever near a wall, <color=\#6A00FF>Z</color> is the key to climbing.
+And remember use <color=\#6A00FF>X or LShift</color> to perform a flashy dash
 Remember if you have to dash, dash with a style 
 -> END
 
@@ -66,7 +66,7 @@ Oh and the fruit can help you dash one more time, just saying!
 -> END
 
 === Level_5 ===
-Agh feeling tired avoid all that trap,  <i><color=\#6A00FF>I don’t want to jump any more than 3 times</color></i>
+Agh feeling tired avoid all that trap,  <color=\#6A00FF>I don’t want to jump any more than 3 times</color>
 -> END
 
 === Level_6 ===
@@ -75,12 +75,12 @@ Oh well, let the journey continue!
 -> END
 
 === Level_6_Penalty ===
-Ugh, I already told you I feel so TIRED. <i><color=\#6A00FF>Won’t jump any more than 4 this time.</color></i> 
+Ugh, I already told you I feel so TIRED. <color=\#6A00FF>Won’t jump any more than 4 this time.</color>
 Don’t even dare to complain, it is YOUR DECISION remember?
 -> END
 
 === Level_7 ===
-Agh I feel invincible, <i><color=\#6A00FF>I won’t hold back any longer!! CHARGE</color></i>
+Agh I feel invincible, <color=\#6A00FF>I won’t hold back any longer!! CHARGE</color>
 -> END
 
 === Level_8 ===
@@ -96,15 +96,15 @@ Why? Because i like the number two
 
 === Level_10 ===
 Well you don’t listen to me. But lucky for you, I’m in a good mood.
-Anyway, my hand is numb, <i><color=\#6A00FF>I don’t want to hang on those rocky walls anymore.</color></i>
+Anyway, my hand is numb, <color=\#6A00FF>I don’t want to hang on those rocky walls anymore.</color>
 How to pass the level you ask? Well maybe jump and dash?
 It's not my job, you have to figure it out lol.
 -> END
 
 === Level_11 ===
 I can sense something above me
-<i><color=\#6A00FF>Oh that is a cat</color></i>, what does that cat doing in this dangerous place?
-<i><color=\#6A00FF>We have to save it!!</color></i>
+<color=\#6A00FF>Oh that is a cat</color>, what does that cat doing in this dangerous place?
+<color=\#6A00FF>We have to save it!!</color>
 -> END
 
 === Level_11_Collect ===

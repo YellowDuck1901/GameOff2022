@@ -55,7 +55,14 @@ public class LevelData : MonoBehaviour
 
         if (!SceneManager.GetActiveScene().name.Equals("Menu"))
         {
-            Manager_SBG.PlaySound(soundsGame.BackGround);
+            if (SceneManager.GetActiveScene().name.Equals("Ending"))
+            {
+                Manager_SBG.PlaySound(soundsGame.EndingMusic);
+            }
+            else
+            {
+                Manager_SBG.PlaySound(soundsGame.BackGround);
+            }
         }
 
     }

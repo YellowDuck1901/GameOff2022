@@ -16,7 +16,8 @@ public enum soundsGame
     Collect,
     Falling,
     Menu,
-    BackGround
+    BackGround,
+    EndingMusic
 }
 public class Config
 {
