@@ -833,24 +833,29 @@ public class PlayerMovement : MonoBehaviour
                 if (IsDashing)
                 {
                     dashEffect.makeGhost = true;
-                    if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
+                    
+                    if ( (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.LeftArrow) )
+                        || (Input.GetKey(KeyCode.UpArrow) && Input.GetKey(KeyCode.RightArrow)) )
                     {
+                        _isDashing = true;
+                        _anim.SetInteger("Dashing", 2);
+                    }
+                    else if (Input.GetKey(KeyCode.UpArrow) && _isGrounded)
+                    {
+                        _isDashing = true;
                         _anim.SetBool("Jumping", true);
-
                     }
                     else
                     {
                         _isDashing = true;
-                        _anim.SetBool("Dashing", true);
-
-
+                        _anim.SetInteger("Dashing", 1);
                     }
                 }
                 else
                 {
                     dashEffect.makeGhost = false;
                     _isDashing = false;
-                    _anim.SetBool("Dashing", false);
+                    _anim.SetInteger("Dashing", 0);
                 }
             }
             else

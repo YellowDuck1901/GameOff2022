@@ -52,8 +52,7 @@ And I can hang on those walls and jump from them too, try using Z when jumping m
 -> END
 
 === Level_2 ===
-Ah look out, it’s a trapppp
-Seriously, just avoid it. What is the worst that could happen?
+ha ha that is so funny
 -> END
 
 === Level_3 ===
