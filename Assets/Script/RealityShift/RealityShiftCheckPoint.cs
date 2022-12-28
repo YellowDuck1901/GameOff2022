@@ -8,6 +8,7 @@ public class RealityShiftCheckPoint : MonoBehaviour
     public GameObject map2;
     public bool map1Active;
 
+
     private void Start()
     {
         map1 = GameObject.Find("Map1");
