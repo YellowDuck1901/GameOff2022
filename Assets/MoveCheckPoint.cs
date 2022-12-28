@@ -8,8 +8,6 @@ public class MoveCheckPoint : MonoBehaviour
     private void Start()
     {
         startPosition = GameObject.Find("StartPosition").GetComponent<Transform>();
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
