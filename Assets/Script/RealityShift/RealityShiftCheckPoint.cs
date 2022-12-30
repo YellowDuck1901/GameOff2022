@@ -6,6 +6,8 @@ public class RealityShiftCheckPoint : MonoBehaviour
 {
     public GameObject map1;
     public GameObject map2;
+    public GameObject bg1;
+    public GameObject bg2;
     public bool map1Active;
 
 
@@ -20,10 +22,14 @@ public class RealityShiftCheckPoint : MonoBehaviour
         if (map1.activeSelf)
         {
             map1Active = true;
+            bg1.SetActive(true);
+            bg2.SetActive(false);
         }
         else
         {
             map1Active = false;
+            bg1.SetActive(false);
+            bg2.SetActive(true);
         }
     }
 
@@ -36,12 +42,16 @@ public class RealityShiftCheckPoint : MonoBehaviour
             {
                 map1.SetActive(false);
                 map2.SetActive(true);
+                bg1.SetActive(false);
+                bg2.SetActive(true);
                 map1Active = false;
             }
             else
             {
                 map1.SetActive(true);
                 map2.SetActive(false);
+                bg1.SetActive(true);
+                bg2.SetActive(false);
                 map1Active = true;
             }
             Destroy(gameObject);

@@ -246,6 +246,6 @@ MonoBehaviour:
   GlitchEffect: {fileID: 0}
   Intensity: 0.2
   GlitchEffect2: {fileID: 0}
-  ScanLineJitter: 0.3
+  ScanLineJitter: 0.1
   HorizontalShake: 0.1
   ColorDrift: 0.1
