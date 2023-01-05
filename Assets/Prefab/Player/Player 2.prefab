@@ -31,6 +31,7 @@ Transform:
   - {fileID: 299025741749643461}
   - {fileID: 299025742013733007}
   - {fileID: 299025741393725778}
+  - {fileID: 4600940734612697002}
   m_Father: {fileID: 299025741569241206}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -275,17 +276,26 @@ MonoBehaviour:
   _PlayerSound: {fileID: 1961019524315694836}
   _anim: {fileID: 299025741569241208}
   _dashesLeft: 0
+  _isPlayingDeadAnim: 0
   _isGrounded: 0
   _isDashing: 0
   _isRunning: 0
   _isWallHang: 0
+  _isWallLeft: 0
+  _isWallRight: 0
+  _isDead: 0
+  _isAutoJumping: 0
+  _isAutoJumpLeft: 0
+  _isAutoJumpRight: 0
   dust: {fileID: 299025741836568189}
   dashEffect: {fileID: 299025741569241209}
   _groundCheckPoint: {fileID: 299025741749643461}
-  _groundCheckSize: {x: 0.52, y: 0.09}
+  _groundCheckSize: {x: 0.31, y: 0.09}
   _frontWallCheckPoint: {fileID: 299025741393725778}
   _backWallCheckPoint: {fileID: 299025742013733007}
-  _wallCheckSize: {x: 0.12, y: 0.79}
+  _wallCheckSize: {x: 0.08, y: 0.72}
+  _AutoJumpWallCheckPoint: {fileID: 4600940734612697002}
+  _AutoJumpWallSize: {x: 0.568, y: 0.7}
   _groundLayer:
     serializedVersion: 2
     m_Bits: 128
@@ -317,7 +327,9 @@ MonoBehaviour:
   isImmortal: 0
   isCutSence: 0
   isHit: 0
+  isPlayingDeadAnim: 0
   _PlayerSound: {fileID: 1961019524315694836}
+  anim: {fileID: 0}
 --- !u!114 &299025741569241209
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -377,7 +389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299025741749643460}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.006, y: -0.873, z: 0}
+  m_LocalPosition: {x: -0.006, y: -0.83, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5226,4 +5238,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 299025740690407789}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4135667059101628814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4600940734612697002}
+  m_Layer: 0
+  m_Name: Out Slide
+  m_TagString: Untagged
+  m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4600940734612697002
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4135667059101628814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.003, y: 0.209, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.65, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 299025740690407789}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

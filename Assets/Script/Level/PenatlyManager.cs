@@ -18,8 +18,4 @@ public class PenatlyManager : MonoBehaviour
 
     }
 
-    private void FixedUpdate()
-    {
-        Debug.Log("anim" +Penatly);
-    }
 }
