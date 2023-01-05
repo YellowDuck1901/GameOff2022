@@ -67,7 +67,15 @@ public class PlayerMovement : MonoBehaviour
     [HideInInspector] public bool _isDashing;
     [HideInInspector] public bool _isRunning;
     [HideInInspector] public bool _isWallHang;
+    [HideInInspector] public bool _isWallLeft;
+    [HideInInspector] public bool _isWallRight;
     [HideInInspector] public bool _isDead;
+
+    [HideInInspector] public bool _isAutoJumping;
+    [HideInInspector] public bool _isAutoJumpLeft;
+    [HideInInspector] public bool _isAutoJumpRight;
+
+
     public ParticleSystem dust;
     public DashEffect dashEffect;
 
@@ -89,7 +97,15 @@ public class PlayerMovement : MonoBehaviour
     [Space(5)]
     [SerializeField] private Transform _frontWallCheckPoint;
     [SerializeField] private Transform _backWallCheckPoint;
+
     [SerializeField] private Vector2 _wallCheckSize = new Vector2(0.5f, 1f);
+
+    [SerializeField] private Transform _AutoJumpWallCheckPoint;
+    [SerializeField] private Vector2 _AutoJumpWallSize = new Vector2(0.5f, 1f);
+
+    //[SerializeField] private Transform _AfterAutoJumpWallCheckPoint;
+    //[SerializeField] private Vector2 _AfterAutoJumpWallSize = new Vector2(0.5f, 1f);
+
     #endregion
 
     #region LAYERS & TAGS
@@ -223,8 +239,15 @@ public class PlayerMovement : MonoBehaviour
 
             if (_isGrounded)
             {
+                _isWallLeft = false;
+                _isWallRight = false;
                 _isWallHang = false;
+
+                _isAutoJumping = false;
+                _isAutoJumpLeft = false;
+                _isAutoJumpRight = false;
             }
+
 
             //Right Wall Check
             if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && IsFacingRight)
@@ -234,6 +257,7 @@ public class PlayerMovement : MonoBehaviour
                 if (!_isGrounded && Input.GetKey(KeyCode.Z))
                 {
                     _isWallHang = true;
+                    _isWallRight = true;
                 }
             }
             else if (((Physics2D.OverlapBox(_frontWallCheckPoint.position, _wallCheckSize, 0, _groundLayer) && !IsFacingRight)
@@ -243,15 +267,44 @@ public class PlayerMovement : MonoBehaviour
                 if (!_isGrounded && Input.GetKey(KeyCode.Z))
                 {
                     _isWallHang = true;
+                    _isWallLeft = true;
+
                 }
             }
             else
             {
+                _isWallLeft = false;
+                _isWallRight = false;
                 _isWallHang = false;
             }
 
-            //Two checks needed for both left and right walls since whenever the play turns the wall checkPoints swap sides
-            LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
+            if (!(Physics2D.OverlapBox(_AutoJumpWallCheckPoint.position, _AutoJumpWallSize, 0, _groundLayer)) && _isWallHang)
+            {
+                Debug.Log("Un OverLapBox");
+                _isAutoJumping = true;
+
+                if ( _isWallLeft)
+                {
+                    _isAutoJumpLeft = true;
+                }
+                else if (_isWallRight)
+                {
+                    _isAutoJumpRight = true;
+                }
+            }else if(Physics2D.OverlapBox(_AutoJumpWallCheckPoint.position, _AutoJumpWallSize, 0, _groundLayer))
+            {
+                _isAutoJumping = false;
+            }
+
+
+
+                //if (!(Physics2D.OverlapBox(_AfterAutoJumpWallCheckPoint.position, _AfterAutoJumpWallSize, 0, _groundLayer)) )
+                //{
+
+                //}
+
+                //Two checks needed for both left and rig   ht walls since whenever the play turns the wall checkPoints swap sides
+                LastOnWallTime = Mathf.Max(LastOnWallLeftTime, LastOnWallRightTime);
         }
         #endregion
 
@@ -318,7 +371,7 @@ public class PlayerMovement : MonoBehaviour
         #endregion
 
         #region DASH CHECKS
-        if (CanDash() && LastPressedDashTime > 0)
+        if (CanDash() && LastPressedDashTime > 0 && !_isAutoJumping  && !_disableAllMovement && !_disableDash)
         {
             //Freeze game for split second. Adds juiciness and a bit of forgiveness over directional input
             Sleep(Data.dashSleepTime);
@@ -394,13 +447,24 @@ public class PlayerMovement : MonoBehaviour
 
         AnimationController();
 
+
+        Debug.Log("_isAutoJumpRight: " + _isAutoJumping);
         #endregion
     }
 
     private void FixedUpdate()
     {
-        if (_disableAllMovement || _disableLeft && _moveInput.x < 0) _moveInput.x = 0;
-        else if (_disableAllMovement || _disableRight && _moveInput.x > 0) _moveInput.x = 0;
+        if (_disableAllMovement || _disableLeft && _moveInput.x <= 0)
+        {
+            _moveInput.x = 0;
+            RB.velocity = new Vector2(0f, 0f);
+        }
+
+        else if (_disableAllMovement || _disableRight && _moveInput.x >= 0)
+        {
+            _moveInput.x = 0;
+            RB.velocity = new Vector2(0f, 0f);
+        }
 
         //Handle Run
         if (!IsDashing)
@@ -418,6 +482,37 @@ public class PlayerMovement : MonoBehaviour
         //Handle Slide
         if (IsSliding)
             Slide();
+
+        if (!(IsDashing || IsJumping) && _isAutoJumping) //don't auto jump when dashing or jumping
+        {
+            if (_isAutoJumpLeft )
+            {
+                _moveInput.x = -1;
+                Run(1);
+            }
+            else if (_isAutoJumpRight)
+            {
+                _moveInput.x = 1;
+                Run(1);
+            }
+        }
+
+        //if(!(IsDashing || IsJumping)) //don't auto jump when dashing or jumping
+        //{
+        //    //SlideOut();
+
+        //    if (_isAutoJumpWallLeft)
+        //    {
+        //        _moveInput.x = -1;
+        //        Run(1);
+        //    }
+        //    else if (_isAutoJumpWallRight)
+        //    {
+        //        _moveInput.x = 1;
+        //        Run(1);
+        //    }
+        //}
+
     }
 
 
@@ -642,30 +737,71 @@ public class PlayerMovement : MonoBehaviour
     }
     #endregion
 
-    #region OTHER MOVEMENT METHODS
+    #region Slide
     private void Slide()
     {
         //Works the same as the Run but only in the y-axis
         //THis seems to work fine, buit maybe you'll find a better way to implement a slide into this system
-        float speedDif = Data.slideSpeed - RB.velocity.y;
+        //float speedDif = Data.slideSpeed - RB.velocity.y;
+
+        //Me: Not apply velocity.y
+        float speedDif = Data.slideSpeed;
+
         float movement = speedDif * Data.slideAccel;
         //So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
         //The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
         movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
 
-        //set velocity y to 0.
-        if (_moveInput.y > 0 && !_disableAllMovement && !_disableslideUp)
+        //slide up
+        if ((_moveInput.y > 0 && !_disableAllMovement && !_disableslideUp ) || _isAutoJumping )
         {
+            RB.velocity = new Vector2(RB.velocity.x, 0f);
             RB.AddForce(movement * Vector2.up);
-            
         }
+        //slide down
         else if (_moveInput.y < 0 && !_disableAllMovement && !_disableslideDown)
         {
+            RB.velocity = new Vector2(RB.velocity.x, 0f);
             RB.AddForce(movement * Vector2.down);
             
         }
+        //hang
         else if (RB.velocity.y != 0 && !_disableAllMovement && !_disableslide) RB.velocity = new Vector2(RB.velocity.x, 0f);
+
+        //autojump
+        if (_isAutoJumping)
+        {
+            RB.velocity = new Vector2(RB.velocity.x, 0f);
+            RB.AddForce(movement *(0.5f) * Vector2.up);
+        }
+
+        if (_isWallLeft)
+        {
+            CheckDirectionToFace(false);
+        }
+        else if (_isWallRight)
+        {
+            CheckDirectionToFace(true);
+
+        }
     }
+
+    //private void SlideOut()
+    //{
+    //    if (_isOutSlide && _isWallHang)
+    //    {
+    //        _isOutSlide = false;
+
+    //        _isAutoJump = true;
+
+    //        _isAutoJumping = true;
+    //        RB.AddForce(new Vector2(0f, Data.SlideOutJumpForce.y), ForceMode2D.Impulse);
+    //    }
+
+    //    //Unlike in the run we want to use the Impulse mode.
+    //    //The default mode will apply are force instantly ignoring masss
+    //}
+
     #endregion
 
 
@@ -688,12 +824,12 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanJump()
     {
-        return !_disableAllMovement && !_disableJump && LastOnGroundTime > 0 && !IsJumping;
+        return !_isAutoJumping && !_disableAllMovement && !_disableJump && LastOnGroundTime > 0 && !IsJumping;
     }
 
     private bool CanWallJump()
     {
-        return !_disableAllMovement && !_disableJump && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
+        return !_isAutoJumping && !_disableAllMovement && !_disableJump && LastPressedJumpTime > 0 && LastOnWallTime > 0 && LastOnGroundTime <= 0 && (!IsWallJumping ||
              (LastOnWallRightTime > 0 && _lastWallJumpDir == 1) || (LastOnWallLeftTime > 0 && _lastWallJumpDir == -1));
     }
 
@@ -709,7 +845,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CanDash()
     {
-        if (!_disableAllMovement && !_disableDash && !IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
+        if ( !IsDashing && _dashesLeft < Data.dashAmount && LastOnGroundTime > 0 && !_dashRefilling)
         {
             StartCoroutine(nameof(RefillDash), 1);
         }
@@ -719,7 +855,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool CanSlide()
     {
-        if ( !_disableAllMovement && !_disableslide && LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing && LastOnGroundTime <= 0)
+        if ( !_disableAllMovement && !_disableslide  && LastOnWallTime > 0 && !IsJumping && !IsWallJumping && !IsDashing )
             return true;
         else
             return false;
@@ -735,6 +871,9 @@ public class PlayerMovement : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(_frontWallCheckPoint.position, _wallCheckSize); //draw cube describe for OverlapBox
         Gizmos.DrawWireCube(_backWallCheckPoint.position, _wallCheckSize);  //draw cube describe for OverlapBox
+        Gizmos.DrawWireCube(_AutoJumpWallCheckPoint.position, _AutoJumpWallSize);  //draw cube describe for OverlapBox
+        //Gizmos.DrawWireCube(_AfterAutoJumpWallCheckPoint.position, _AfterAutoJumpWallSize);  //draw cube describe for OverlapBox
+
     }
     #endregion
 

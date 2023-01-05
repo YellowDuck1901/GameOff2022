@@ -43,12 +43,10 @@ public class LevelData : MonoBehaviour
     {
         if (IsPentlyThisLevel && PenatlyManager.Penatly)
         {
-            Debug.Log("Penalty");
             DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel + strKnotPenatly);
         }
         else
         {
-            Debug.Log("Normal");
             DialogueManager.getInstance().EnterDialogueMode(inkJSON, KnotLevel);
 
         }
