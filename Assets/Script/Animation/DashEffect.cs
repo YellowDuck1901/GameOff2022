@@ -7,6 +7,7 @@ public class DashEffect : MonoBehaviour
     public float ghostDelay;
     private float ghostDelaySecond;
     public GameObject ghost;
+    public GameObject player;
     public bool makeGhost = false;
 
     // Start is called before the first frame update
@@ -29,7 +30,7 @@ public class DashEffect : MonoBehaviour
             {
                 GameObject curretGhost = Instantiate(ghost, transform.position, transform.rotation);
                 Sprite currentSprite = GetComponent<SpriteRenderer>().sprite;
-                curretGhost.transform.localScale = this.transform.localScale;
+                curretGhost.transform.localScale = player.transform.localScale;
                 curretGhost.GetComponent<SpriteRenderer>().sprite = currentSprite;  
                 ghostDelaySecond = ghostDelay;
                 Destroy(curretGhost,1f);

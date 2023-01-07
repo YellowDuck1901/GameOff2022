@@ -51,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 _lastDashDir;
     private bool _isDashAttacking;
     public bool _isPlayingDeadAnim;
+    public GameObject outOfDash;
+    public DashEffect dashEffect;
 
     // Input Slide: true when long-press key , false when un press
     private bool _isKeySlide;
@@ -77,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
 
 
     public ParticleSystem dust;
-    public DashEffect dashEffect;
 
     #endregion
 
@@ -125,6 +126,7 @@ public class PlayerMovement : MonoBehaviour
         sr = gameObject.GetComponent<SpriteRenderer>();
         SetGravityScale(Data.gravityScale);
         IsFacingRight = true;
+        outOfDash.SetActive(false);
     }
 
     private void Update()
@@ -246,6 +248,8 @@ public class PlayerMovement : MonoBehaviour
                 _isAutoJumping = false;
                 _isAutoJumpLeft = false;
                 _isAutoJumpRight = false;
+
+                outOfDash.SetActive(false);
             }
 
 
@@ -678,9 +682,8 @@ public class PlayerMovement : MonoBehaviour
     //Dash Coroutine
     private IEnumerator StartDash(Vector2 dir)
     {
+        outOfDash.SetActive(true);
         _PlayerSound.playSoundDash();
-
-        sr.color = new Color(0.3f, 0.8f, 1f, 1f);
 
         //Overall this method of dashing aims to mimic Celeste, if you're looking for
         // a more physics-based approach try a metho    d similar to that used in the jump
