@@ -1,0 +1,12 @@
+
+=== Script Pathfinder with 2d project ==
+- Create graph
+- stick 2D
+- stick 2D physics
+
+========= Truong hop node ko fit voi TitleMap Collider 2D - Used By Composite  =========
+
+Composite Collider 2D
+ - Switch "Geometry Type"  --> polygons
+ Pathfinder Script
+ - Decrease "Diameter" 
